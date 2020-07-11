@@ -12,6 +12,10 @@ using System.IO;
 using NPOI.XSSF.UserModel;
 using NPOI.SS.UserModel;
 
+// Бесполезно что-то рефакторить: 
+// 1. Половина логики в форме.
+// 2. Элементы формы button8 в переменных типа button8_Click
+
 using rent_calc.Events;
 namespace rent_calc
 {
@@ -27,10 +31,10 @@ namespace rent_calc
             InitializeComponent();
             myDelegate = new CreateNew(createNewItem);
             addresses = new BindingList<Address>();
-            listBox1.DataSource = addresses;
+            addressListBox.DataSource = addresses;
             saveFileDialog1.Filter = "Save|*.dap";
             openFileDialog1.Filter = "Load|*.dap";
-            button4_state = 0;
+            changeCurrentAddressInfoButton_state = 0;
           
             
         }
@@ -39,7 +43,7 @@ namespace rent_calc
             InitializeComponent();
             myDelegate = new CreateNew(createNewItem);
             addresses = new BindingList<Address>();
-            listBox1.DataSource = addresses;
+            addressListBox.DataSource = addresses;
             saveFileDialog1.Filter = "Save|*.dap";
             openFileDialog1.Filter = "Load|*.dap";
             if (!string.IsNullOrWhiteSpace(fileName) && File.Exists(fileName))
@@ -52,83 +56,83 @@ namespace rent_calc
                     {
                         BindingList<Address> newAddresses = (BindingList<Address>)formatter.Deserialize(fs);
                         addresses = newAddresses;
-                        listBox1.DataSource = addresses;
+                        addressListBox.DataSource = addresses;
                     }
                 }
             }
-            button4_state = 0;
+            changeCurrentAddressInfoButton_state = 0;
         }
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void addressListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UnclickAllButtons();
-            Address whatAddress = (Address)listBox1.SelectedItem;
-            textBox1.Text = "";
-            richTextBox1.Text = "";
+            Address whatAddress = (Address)addressListBox.SelectedItem;
+            currentAddressNameTextBox.Text = "";
+            currentAddressDescriptionTextBox.Text = "";
             if (whatAddress == null)
                 return;
-            listBox2.DataSource = whatAddress.people;
+            personListBox.DataSource = whatAddress.people;
             if (whatAddress.people.Count > 0)
             {
-                listBox2.SetSelected(0, true);
-                listBox3.DataSource = whatAddress.people[0].events;
+                personListBox.SetSelected(0, true);
+                eventListBox.DataSource = whatAddress.people[0].events;
             }
             else
             {
-                listBox3.DataSource = null;
-                listBox3.Items.Clear();
-                textBox2.Text = "";
-                richTextBox2.Text = "";
+                eventListBox.DataSource = null;
+                eventListBox.Items.Clear();
+                currentPersonNameTextBox.Text = "";
+                currentPersonDescriptionTextBox.Text = "";
             }
-            textBox1.Text = whatAddress.name;
-            richTextBox1.Text = whatAddress.description;
+            currentAddressNameTextBox.Text = whatAddress.name;
+            currentAddressDescriptionTextBox.Text = whatAddress.description;
 
         }
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void personListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UnclickAllButtons();
-            Person who = (Person)listBox2.SelectedItem;
+            Person who = (Person)personListBox.SelectedItem;
             if (who == null)
             {
-                textBox2.Text = "";
-                richTextBox2.Text = "";
+                currentPersonNameTextBox.Text = "";
+                currentPersonDescriptionTextBox.Text = "";
                 return;
             }
             who.generateWithdrawEvents(DateTime.Today);
-            listBox3.DataSource = who.events;
-            textBox2.Text = who.personName;
-            richTextBox2.Text = who.description;
+            eventListBox.DataSource = who.events;
+            currentPersonNameTextBox.Text = who.personName;
+            currentPersonDescriptionTextBox.Text = who.description;
             Recount();
         }
 
         private void Recount()
         {
-            Person who = (Person)listBox2.SelectedItem;
-            textBox8.Text = "";
-            textBox9.Text = "";
+            Person who = (Person)personListBox.SelectedItem;
+            currentPenaltyTextBox.Text = "";
+            currentDebtTextBox.Text = "";
             if (who == null)
             {
-                textBox2.Text = "";
-                richTextBox2.Text = "";
-                textBox4.Text = "";
-                textBox5.Text = "";
+                currentPersonNameTextBox.Text = "";
+                currentPersonDescriptionTextBox.Text = "";
+                todayDebtTextBox.Text = "";
+                todayPenaltyTextBox.Text = "";
                 return;
             }
             Report report = who.Simulate(DateTime.Now);
-            textBox4.Text = report.totalDepth.ToString();
-            textBox5.Text = report.totalPenalty.ToString();
+            todayDebtTextBox.Text = report.totalDepth.ToString();
+            todayPenaltyTextBox.Text = report.totalPenalty.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void newAddressButton_Click(object sender, EventArgs e)
         {
             NewRoom test = new NewRoom();
             test.Owner = this;
             test.Show();
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void newPersonButton_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItem != null)
+            if (addressListBox.SelectedItem != null)
             {
-                NewPerson test = new NewPerson(((Address)listBox1.SelectedItem).name);
+                NewPerson test = new NewPerson(((Address)addressListBox.SelectedItem).name);
                 test.Owner = this;
                 test.Show();
             }
@@ -160,12 +164,12 @@ namespace rent_calc
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void currentEventDateTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        private void eventListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UnclickAllButtons();
             changeSelectedEvent();
@@ -180,12 +184,12 @@ namespace rent_calc
             groupBoxPayment.Enabled = false;
             groupBoxCustomWriteOff.Visible = false;
             groupBoxCustomWriteOff.Enabled = false;
-            textBox3.Text = "";
-            textBox7.Text = "";
-            if (listBox1.SelectedItem == null || listBox2.SelectedItem == null || listBox3.SelectedItem == null)
+            currentEventDateTextBox.Text = "";
+            lastTermEndDateTextBox.Text = "";
+            if (addressListBox.SelectedItem == null || personListBox.SelectedItem == null || eventListBox.SelectedItem == null)
                 return;
-            Event curEvent = (Event)listBox3.SelectedItem;
-            textBox3.Text = curEvent.date.ToString().Substring(0, 11);
+            Event curEvent = (Event)eventListBox.SelectedItem;
+            currentEventDateTextBox.Text = curEvent.date.ToString().Substring(0, 11);
             if (typeof(PayEvent) == curEvent.GetType())
             {
                 PayEvent trueEvent = (PayEvent)curEvent;
@@ -215,12 +219,12 @@ namespace rent_calc
                 groupBoxContract.Visible = true;
                 groupBoxContract.Enabled = true;
                 Terms terms = trueEvent.terms;
-                numericUpDown4.Value = terms.payment;
-                numericUpDown2.Value = terms.dayOfPayment.Day;
-                numericUpDown3.Value = (decimal)terms.penalty;
-                textBox6.Text = trueEvent.endDate.ToString().Substring(0, 11);
+                currentEventTermPaymentUpDown.Value = terms.payment;
+                currentEventTermPaymentDateUpDown.Value = terms.dayOfPayment.Day;
+                currentEventTermPenaltyUpDown.Value = (decimal)terms.penalty;
+                currentEventTermEndDateUpDown.Text = trueEvent.endDate.ToString().Substring(0, 11);
             }
-            Person person = (Person)listBox2.SelectedItem;
+            Person person = (Person)personListBox.SelectedItem;
             int pointer;
             for (pointer = person.events.Count - 1; ; pointer--)
             {
@@ -231,55 +235,55 @@ namespace rent_calc
                 }
             }
 
-            textBox7.Text = ((ContractChangeEvent)person.events[pointer]).endDate.ToString().Substring(0, 11);
+            lastTermEndDateTextBox.Text = ((ContractChangeEvent)person.events[pointer]).endDate.ToString().Substring(0, 11);
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void deleteAddressButton_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItem == null)
+            if (addressListBox.SelectedItem == null)
                 return;
-            DialogResult dialogResult = MessageBox.Show("Вы действительно хотите удалить помещение " + ((Address)(listBox1.SelectedItem)).ToString(), "Удаление помещения", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Вы действительно хотите удалить помещение " + ((Address)(addressListBox.SelectedItem)).ToString(), "Удаление помещения", MessageBoxButtons.YesNo);
             if (dialogResult != DialogResult.Yes)
                 return;
-            addresses.Remove((Address)listBox1.SelectedItem);
-            listBox1.SelectedItem = null;
-            listBox2.DataSource = null;
-            listBox3.DataSource = null;
+            addresses.Remove((Address)addressListBox.SelectedItem);
+            addressListBox.SelectedItem = null;
+            personListBox.DataSource = null;
+            eventListBox.DataSource = null;
             Recount();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void deletePersonButton_Click(object sender, EventArgs e)
         {
-            if (listBox2.SelectedItem == null || listBox1.SelectedItem == null)
+            if (personListBox.SelectedItem == null || addressListBox.SelectedItem == null)
                 return;
-            DialogResult dialogResult = MessageBox.Show("Вы действительно хотите удалить арендатора " + ((Person)(listBox2.SelectedItem)).ToString(), "Удаление арендатора", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Вы действительно хотите удалить арендатора " + ((Person)(personListBox.SelectedItem)).ToString(), "Удаление арендатора", MessageBoxButtons.YesNo);
             if (dialogResult != DialogResult.Yes)
                 return;
-            ((Address)(listBox1.SelectedItem)).people.Remove((Person)listBox2.SelectedItem);
-            listBox2.SelectedItem = null;
-            listBox3.DataSource = null;
+            ((Address)(addressListBox.SelectedItem)).people.Remove((Person)personListBox.SelectedItem);
+            personListBox.SelectedItem = null;
+            eventListBox.DataSource = null;
             Recount();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void deleteEventButton_Click(object sender, EventArgs e)
         {
-            if (listBox2.SelectedItem == null || listBox1.SelectedItem == null || listBox3.SelectedItem == null)
+            if (personListBox.SelectedItem == null || addressListBox.SelectedItem == null || eventListBox.SelectedItem == null)
                 return;
-            if (listBox3.SelectedIndex == 0)
+            if (eventListBox.SelectedIndex == 0)
             {
                 MessageBox.Show("Заключение первого договора нельзя удалить");
                 return;
             }
-            if (listBox3.SelectedItem.GetType() == typeof(WriteOffEvent))
+            if (eventListBox.SelectedItem.GetType() == typeof(WriteOffEvent))
             {
                 MessageBox.Show("Автоматически сгенерированные события удалить нельзя");
                 return;
             }
-            DialogResult dialogResult = MessageBox.Show("Вы действительно хотите удалить событие: \n" + ((Event)(listBox3.SelectedItem)).ToString(), "Удаление события", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Вы действительно хотите удалить событие: \n" + ((Event)(eventListBox.SelectedItem)).ToString(), "Удаление события", MessageBoxButtons.YesNo);
             if (dialogResult != DialogResult.Yes)
                 return;
-            ((Person)(listBox2.SelectedItem)).events.Remove((Event)listBox3.SelectedItem);
-            listBox3.SelectedItem = null;
+            ((Person)(personListBox.SelectedItem)).events.Remove((Event)eventListBox.SelectedItem);
+            eventListBox.SelectedItem = null;
             Recount();
         }
 
@@ -352,29 +356,29 @@ namespace rent_calc
                 NewRoomHelper room = (NewRoomHelper)newSmth;
                 Address newAddress = new Address(room.name, room.description);
                 addresses.Add(newAddress);
-                listBox1.SelectedItem = newAddress;
-                listBox2.DataSource = newAddress.people;
-                textBox1.Text = newAddress.name;
-                richTextBox1.Text = newAddress.description;
-                textBox2.Text = "";
-                richTextBox2.Text = "";
-                //listBox1.Items.Add(newAddress);
+                addressListBox.SelectedItem = newAddress;
+                personListBox.DataSource = newAddress.people;
+                currentAddressNameTextBox.Text = newAddress.name;
+                currentAddressDescriptionTextBox.Text = newAddress.description;
+                currentPersonNameTextBox.Text = "";
+                currentPersonDescriptionTextBox.Text = "";
+                //addressListBox.Items.Add(newAddress);
             }
             if(newSmth.GetType()==typeof(NewPersonHelper))
             {
                 NewPersonHelper personHelper = (NewPersonHelper)newSmth;
                 Person person = new Person(personHelper.name,personHelper.description,personHelper.terms.dateOfAcceptance);
-                ((Address)listBox1.SelectedItem).people.Add(person);
+                ((Address)addressListBox.SelectedItem).people.Add(person);
                 person.addEvent(new ContractChangeEvent(personHelper.terms.dateOfAcceptance,personHelper.endDate, personHelper.terms));
                 person.generateWithdrawEvents(DateTime.Now);
-                listBox2.SelectedItem = person;
-                listBox3.DataSource = person.events;
-                textBox2.Text = person.personName;
-                richTextBox2.Text = person.description;
+                personListBox.SelectedItem = person;
+                eventListBox.DataSource = person.events;
+                currentPersonNameTextBox.Text = person.personName;
+                currentPersonDescriptionTextBox.Text = person.description;
             }
             if(newSmth.GetType()==typeof(NewEventHelper))
             {
-                Person person = (Person)listBox2.SelectedItem;
+                Person person = (Person)personListBox.SelectedItem;
                 if (person.addEvent(((NewEventHelper)newSmth).myEvent) == 1)
                     MessageBox.Show("Нельзя совершать действия до заклю" +
                         "чения первого договора");
@@ -385,16 +389,16 @@ namespace rent_calc
                         ;
                     ((CustomWriteOff)((NewEventHelper)newSmth).myEvent).penalty = ((ContractChangeEvent)person.events[i]).terms.penalty;
                 }
-                listBox3.SelectedItem = ((NewEventHelper)newSmth).myEvent;
+                eventListBox.SelectedItem = ((NewEventHelper)newSmth).myEvent;
             }
             Recount();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void newEventButton_Click(object sender, EventArgs e)
         {
-            if (listBox2.SelectedItem != null)
+            if (personListBox.SelectedItem != null)
             {
-                NewEvent test = new NewEvent(((Address)listBox1.SelectedItem).name, ((Person)listBox2.SelectedItem).ToString());
+                NewEvent test = new NewEvent(((Address)addressListBox.SelectedItem).name, ((Person)personListBox.SelectedItem).ToString());
                 test.Owner = this;
                 test.Show();
             }
@@ -410,108 +414,108 @@ namespace rent_calc
                 {
                     BindingList<Address> newAddresses = (BindingList<Address>)formatter.Deserialize(fs);
                     addresses = newAddresses;
-                    listBox1.DataSource = addresses;
+                    addressListBox.DataSource = addresses;
                 }
             }
             
         }
-        int button4_state=0;
+        int changeCurrentAddressInfoButton_state=0;
         private void UnclickAllButtons()
         {
-            button4_state = 0;
-            button5_state = 0;
-            button4.Text = "Изменить";
-            button5.Text = "Изменить";
-            textBox1.Enabled = false;
-            richTextBox1.Enabled = false;
-            textBox2.Enabled = false;
-            richTextBox2.Enabled = false;
-            if (listBox1.SelectedItem != null)
+            changeCurrentAddressInfoButton_state = 0;
+            changeCurrentPersonInfoButton_state = 0;
+            changeCurrentAddressInfoButton.Text = "Изменить";
+            changeCurrentPersonInfoButton.Text = "Изменить";
+            currentAddressNameTextBox.Enabled = false;
+            currentAddressDescriptionTextBox.Enabled = false;
+            currentPersonNameTextBox.Enabled = false;
+            currentPersonDescriptionTextBox.Enabled = false;
+            if (addressListBox.SelectedItem != null)
             {
-                Address address = (Address)listBox1.SelectedItem;
-                textBox1.Text = address.name ;
-                richTextBox1.Text = address.description;
+                Address address = (Address)addressListBox.SelectedItem;
+                currentAddressNameTextBox.Text = address.name ;
+                currentAddressDescriptionTextBox.Text = address.description;
             }
-            if (listBox2.SelectedItem != null)
+            if (personListBox.SelectedItem != null)
             {
-                Person person = (Person)listBox2.SelectedItem;
-                textBox2.Text = person.personName;
-                richTextBox2.Text = person.description;
+                Person person = (Person)personListBox.SelectedItem;
+                currentPersonNameTextBox.Text = person.personName;
+                currentPersonDescriptionTextBox.Text = person.description;
             }
         }
-        private void button4_Click(object sender, EventArgs e)
+        private void changeCurrentAddressInfoButton_Click(object sender, EventArgs e)
         {
-            if(button4_state == 0)
+            if(changeCurrentAddressInfoButton_state == 0)
             {
                 UnclickAllButtons();
-                if (listBox1.SelectedItem == null)
+                if (addressListBox.SelectedItem == null)
                     return;
-                button4.Text = "Готово";
-                textBox1.Enabled = true;
-                richTextBox1.Enabled = true;
-                button4_state = 1;
+                changeCurrentAddressInfoButton.Text = "Готово";
+                currentAddressNameTextBox.Enabled = true;
+                currentAddressDescriptionTextBox.Enabled = true;
+                changeCurrentAddressInfoButton_state = 1;
             }
             else
             {
-                if (listBox1.SelectedItem == null)
+                if (addressListBox.SelectedItem == null)
                     return;
-                Address address = (Address)listBox1.SelectedItem;
-                button4.Text = "Изменить";
-                address.name = textBox1.Text;
-                address.description =richTextBox1.Text;
-                button4_state = 0;
-                textBox1.Enabled = false;
-                richTextBox1.Enabled = false;
-                listBox1.DataSource = null;
-                listBox1.DataSource = addresses;
-                listBox1.SelectedItem = address;
+                Address address = (Address)addressListBox.SelectedItem;
+                changeCurrentAddressInfoButton.Text = "Изменить";
+                address.name = currentAddressNameTextBox.Text;
+                address.description =currentAddressDescriptionTextBox.Text;
+                changeCurrentAddressInfoButton_state = 0;
+                currentAddressNameTextBox.Enabled = false;
+                currentAddressDescriptionTextBox.Enabled = false;
+                addressListBox.DataSource = null;
+                addressListBox.DataSource = addresses;
+                addressListBox.SelectedItem = address;
             }
         }
-        int button5_state = 0;
-        private void button5_Click(object sender, EventArgs e)
+        int changeCurrentPersonInfoButton_state = 0;
+        private void changeCurrentPersonInfoButton_Click(object sender, EventArgs e)
         {
-            if (button5_state == 0)
+            if (changeCurrentPersonInfoButton_state == 0)
             {
                 UnclickAllButtons();
-                if (listBox2.SelectedItem == null)
+                if (personListBox.SelectedItem == null)
                     return;
-                button5.Text = "Готово";
-                textBox2.Enabled = true;
-                richTextBox2.Enabled = true;
-                button5_state = 1;
+                changeCurrentPersonInfoButton.Text = "Готово";
+                currentPersonNameTextBox.Enabled = true;
+                currentPersonDescriptionTextBox.Enabled = true;
+                changeCurrentPersonInfoButton_state = 1;
             }
             else
             {
-                if (listBox2.SelectedItem == null)
+                if (personListBox.SelectedItem == null)
                     return;
-                Person person = (Person)listBox2.SelectedItem;
-                button5.Text = "Изменить";
-                person.personName = textBox2.Text;
-                person.description = richTextBox2.Text;
-                button5_state = 0;
-                textBox2.Enabled = false;
-                richTextBox2.Enabled = false;
-                listBox2.DataSource = null;
-                listBox2.DataSource = ((Address)listBox1.SelectedItem).people;
-                listBox2.SelectedItem = person;
+                Person person = (Person)personListBox.SelectedItem;
+                changeCurrentPersonInfoButton.Text = "Изменить";
+                person.personName = currentPersonNameTextBox.Text;
+                person.description = currentPersonDescriptionTextBox.Text;
+                changeCurrentPersonInfoButton_state = 0;
+                currentPersonNameTextBox.Enabled = false;
+                currentPersonDescriptionTextBox.Enabled = false;
+                personListBox.DataSource = null;
+                personListBox.DataSource = ((Address)addressListBox.SelectedItem).people;
+                personListBox.SelectedItem = person;
             }
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void countCurrentButton_Click(object sender, EventArgs e)
         {
-            if (listBox3.SelectedItem == null)
+            if (eventListBox.SelectedItem == null)
                 return;
-            Person person = (Person)listBox2.SelectedItem;
-            Report report = person.Simulate(monthCalendar1.SelectionStart);
-            textBox9.Text = report.totalDepth.ToString();
-            textBox8.Text = report.totalPenalty.ToString();
+            Person person = (Person)personListBox.SelectedItem;
+            Report report = person.Simulate(curDateCalendar.SelectionStart);
+            currentDebtTextBox.Text = report.totalDepth.ToString();
+            currentPenaltyTextBox.Text = report.totalPenalty.ToString();
             person.generateWithdrawEvents(DateTime.Now);
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void exportXLSButton_Click(object sender, EventArgs e)
         {
 
-            if (listBox2.SelectedItem == null)
+            if (personListBox.SelectedItem == null)
                 return;
             saveFileDialog2.ShowDialog();
             if (saveFileDialog2.FileName != "")
@@ -525,7 +529,7 @@ namespace rent_calc
                 row.CreateCell(2).SetCellValue("Оплачено");
                 int curRow = 1;
                 row = sheet.CreateRow(curRow);
-                foreach(Event curEvent in ((Person)listBox2.SelectedItem).events.Where(x=> { return x.date <= monthCalendar1.SelectionStart; }))
+                foreach(Event curEvent in ((Person)personListBox.SelectedItem).events.Where(x=> { return x.date <= curDateCalendar.SelectionStart; }))
                 {
                     if(curEvent.ToRow(row))
                     {
@@ -533,12 +537,12 @@ namespace rent_calc
                         row = sheet.CreateRow(curRow); 
                     }
                 }
-                Person person = (Person)listBox2.SelectedItem;
-                Report report = person.Simulate(monthCalendar1.SelectionStart);
+                Person person = (Person)personListBox.SelectedItem;
+                Report report = person.Simulate(curDateCalendar.SelectionStart);
                 sheet.AutoSizeColumn(0);
                 sheet.AutoSizeColumn(1);
                 sheet.AutoSizeColumn(2);
-                row.CreateCell(0).SetCellValue("Итого на " + monthCalendar1.SelectionStart.ToString().Substring(0, 11));
+                row.CreateCell(0).SetCellValue("Итого на " + curDateCalendar.SelectionStart.ToString().Substring(0, 11));
                 row.CreateCell(1).SetCellValue("Долг:");
                 row.CreateCell(2).SetCellValue(report.totalDepth);
                 row.CreateCell(3).SetCellValue("Пеня:");
@@ -699,9 +703,6 @@ namespace rent_calc
             return report;
         }
     }
-    
-    
-    
 
     [Serializable]
     public class Terms : Object

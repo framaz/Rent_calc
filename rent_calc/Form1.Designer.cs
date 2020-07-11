@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.addressListBox = new System.Windows.Forms.ListBox();
+            this.personListBox = new System.Windows.Forms.ListBox();
+            this.eventListBox = new System.Windows.Forms.ListBox();
+            this.newAddressButton = new System.Windows.Forms.Button();
+            this.newPersonButton = new System.Windows.Forms.Button();
+            this.newEventButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.changeCurrentAddressInfoButton = new System.Windows.Forms.Button();
+            this.currentAddressDescriptionTextBox = new System.Windows.Forms.RichTextBox();
+            this.currentAddressNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.changeCurrentPersonInfoButton = new System.Windows.Forms.Button();
+            this.currentPersonDescriptionTextBox = new System.Windows.Forms.RichTextBox();
+            this.currentPersonNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -53,24 +53,24 @@
             this.label8 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.currentEventDateTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBoxContract = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.currentEventTermEndDateUpDown = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.currentEventTermPenaltyUpDown = new System.Windows.Forms.NumericUpDown();
+            this.currentEventTermPaymentDateUpDown = new System.Windows.Forms.NumericUpDown();
+            this.currentEventTermPaymentUpDown = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.deleteEventButton = new System.Windows.Forms.Button();
+            this.deletePersonButton = new System.Windows.Forms.Button();
+            this.deleteAddressButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.todayPenaltyTextBox = new System.Windows.Forms.TextBox();
+            this.todayDebtTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -78,14 +78,14 @@
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.lastTermEndDateTextBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.exportXLSButton = new System.Windows.Forms.Button();
+            this.countCurrentButton = new System.Windows.Forms.Button();
+            this.curDateCalendar = new System.Windows.Forms.MonthCalendar();
+            this.currentPenaltyTextBox = new System.Windows.Forms.TextBox();
+            this.currentDebtTextBox = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
@@ -102,9 +102,9 @@
             this.groupBoxPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBoxContract.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentEventTermPenaltyUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentEventTermPaymentDateUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentEventTermPaymentUpDown)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -112,74 +112,74 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.SuspendLayout();
             // 
-            // listBox1
+            // addressListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalExtent = 1000;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.Location = new System.Drawing.Point(13, 26);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(169, 368);
-            this.listBox1.TabIndex = 0;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.addressListBox.FormattingEnabled = true;
+            this.addressListBox.HorizontalExtent = 1000;
+            this.addressListBox.HorizontalScrollbar = true;
+            this.addressListBox.Location = new System.Drawing.Point(13, 26);
+            this.addressListBox.Name = "addressListBox";
+            this.addressListBox.Size = new System.Drawing.Size(169, 368);
+            this.addressListBox.TabIndex = 0;
+            this.addressListBox.SelectedIndexChanged += new System.EventHandler(this.addressListBox_SelectedIndexChanged);
             // 
-            // listBox2
+            // personListBox
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.HorizontalExtent = 1000;
-            this.listBox2.HorizontalScrollbar = true;
-            this.listBox2.Location = new System.Drawing.Point(188, 25);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(169, 368);
-            this.listBox2.TabIndex = 1;
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            this.personListBox.FormattingEnabled = true;
+            this.personListBox.HorizontalExtent = 1000;
+            this.personListBox.HorizontalScrollbar = true;
+            this.personListBox.Location = new System.Drawing.Point(188, 25);
+            this.personListBox.Name = "personListBox";
+            this.personListBox.Size = new System.Drawing.Size(169, 368);
+            this.personListBox.TabIndex = 1;
+            this.personListBox.SelectedIndexChanged += new System.EventHandler(this.personListBox_SelectedIndexChanged);
             // 
-            // listBox3
+            // eventListBox
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.HorizontalExtent = 1000;
-            this.listBox3.HorizontalScrollbar = true;
-            this.listBox3.Location = new System.Drawing.Point(363, 25);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(266, 368);
-            this.listBox3.TabIndex = 2;
-            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
+            this.eventListBox.FormattingEnabled = true;
+            this.eventListBox.HorizontalExtent = 1000;
+            this.eventListBox.HorizontalScrollbar = true;
+            this.eventListBox.Location = new System.Drawing.Point(363, 25);
+            this.eventListBox.Name = "eventListBox";
+            this.eventListBox.Size = new System.Drawing.Size(266, 368);
+            this.eventListBox.TabIndex = 2;
+            this.eventListBox.SelectedIndexChanged += new System.EventHandler(this.eventListBox_SelectedIndexChanged);
             // 
-            // button1
+            // newAddressButton
             // 
-            this.button1.Location = new System.Drawing.Point(13, 404);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 28);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Новое помещение";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.newAddressButton.Location = new System.Drawing.Point(13, 404);
+            this.newAddressButton.Name = "newAddressButton";
+            this.newAddressButton.Size = new System.Drawing.Size(169, 28);
+            this.newAddressButton.TabIndex = 3;
+            this.newAddressButton.Text = "Новое помещение";
+            this.newAddressButton.UseVisualStyleBackColor = true;
+            this.newAddressButton.Click += new System.EventHandler(this.newAddressButton_Click);
             // 
-            // button2
+            // newPersonButton
             // 
-            this.button2.Location = new System.Drawing.Point(188, 404);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(169, 28);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Новый арендатор";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.newPersonButton.Location = new System.Drawing.Point(188, 404);
+            this.newPersonButton.Name = "newPersonButton";
+            this.newPersonButton.Size = new System.Drawing.Size(169, 28);
+            this.newPersonButton.TabIndex = 4;
+            this.newPersonButton.Text = "Новый арендатор";
+            this.newPersonButton.UseVisualStyleBackColor = true;
+            this.newPersonButton.Click += new System.EventHandler(this.newPersonButton_Click);
             // 
-            // button3
+            // newEventButton
             // 
-            this.button3.Location = new System.Drawing.Point(364, 404);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(266, 28);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Новое событие";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.newEventButton.Location = new System.Drawing.Point(364, 404);
+            this.newEventButton.Name = "newEventButton";
+            this.newEventButton.Size = new System.Drawing.Size(266, 28);
+            this.newEventButton.TabIndex = 5;
+            this.newEventButton.Text = "Новое событие";
+            this.newEventButton.UseVisualStyleBackColor = true;
+            this.newEventButton.Click += new System.EventHandler(this.newEventButton_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.changeCurrentAddressInfoButton);
+            this.groupBox1.Controls.Add(this.currentAddressDescriptionTextBox);
+            this.groupBox1.Controls.Add(this.currentAddressNameTextBox);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(636, 12);
@@ -189,32 +189,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Информация о помещении";
             // 
-            // button4
+            // changeCurrentAddressInfoButton
             // 
-            this.button4.Location = new System.Drawing.Point(10, 63);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(76, 30);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Изменить";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.changeCurrentAddressInfoButton.Location = new System.Drawing.Point(10, 63);
+            this.changeCurrentAddressInfoButton.Name = "changeCurrentAddressInfoButton";
+            this.changeCurrentAddressInfoButton.Size = new System.Drawing.Size(76, 30);
+            this.changeCurrentAddressInfoButton.TabIndex = 4;
+            this.changeCurrentAddressInfoButton.Text = "Изменить";
+            this.changeCurrentAddressInfoButton.UseVisualStyleBackColor = true;
+            this.changeCurrentAddressInfoButton.Click += new System.EventHandler(this.changeCurrentAddressInfoButton_Click);
             // 
-            // richTextBox1
+            // currentAddressDescriptionTextBox
             // 
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Location = new System.Drawing.Point(92, 47);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(228, 47);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.currentAddressDescriptionTextBox.Enabled = false;
+            this.currentAddressDescriptionTextBox.Location = new System.Drawing.Point(92, 47);
+            this.currentAddressDescriptionTextBox.Name = "currentAddressDescriptionTextBox";
+            this.currentAddressDescriptionTextBox.Size = new System.Drawing.Size(228, 47);
+            this.currentAddressDescriptionTextBox.TabIndex = 3;
+            this.currentAddressDescriptionTextBox.Text = "";
             // 
-            // textBox1
+            // currentAddressNameTextBox
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(92, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 20);
-            this.textBox1.TabIndex = 2;
+            this.currentAddressNameTextBox.Enabled = false;
+            this.currentAddressNameTextBox.Location = new System.Drawing.Point(92, 20);
+            this.currentAddressNameTextBox.Name = "currentAddressNameTextBox";
+            this.currentAddressNameTextBox.Size = new System.Drawing.Size(228, 20);
+            this.currentAddressNameTextBox.TabIndex = 2;
             // 
             // label2
             // 
@@ -236,9 +236,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.richTextBox2);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.changeCurrentPersonInfoButton);
+            this.groupBox2.Controls.Add(this.currentPersonDescriptionTextBox);
+            this.groupBox2.Controls.Add(this.currentPersonNameTextBox);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(636, 118);
@@ -248,32 +248,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация об арендаторе";
             // 
-            // button5
+            // changeCurrentPersonInfoButton
             // 
-            this.button5.Location = new System.Drawing.Point(10, 63);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(76, 30);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Изменить";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.changeCurrentPersonInfoButton.Location = new System.Drawing.Point(10, 63);
+            this.changeCurrentPersonInfoButton.Name = "changeCurrentPersonInfoButton";
+            this.changeCurrentPersonInfoButton.Size = new System.Drawing.Size(76, 30);
+            this.changeCurrentPersonInfoButton.TabIndex = 4;
+            this.changeCurrentPersonInfoButton.Text = "Изменить";
+            this.changeCurrentPersonInfoButton.UseVisualStyleBackColor = true;
+            this.changeCurrentPersonInfoButton.Click += new System.EventHandler(this.changeCurrentPersonInfoButton_Click);
             // 
-            // richTextBox2
+            // currentPersonDescriptionTextBox
             // 
-            this.richTextBox2.Enabled = false;
-            this.richTextBox2.Location = new System.Drawing.Point(92, 47);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(228, 47);
-            this.richTextBox2.TabIndex = 3;
-            this.richTextBox2.Text = "";
+            this.currentPersonDescriptionTextBox.Enabled = false;
+            this.currentPersonDescriptionTextBox.Location = new System.Drawing.Point(92, 47);
+            this.currentPersonDescriptionTextBox.Name = "currentPersonDescriptionTextBox";
+            this.currentPersonDescriptionTextBox.Size = new System.Drawing.Size(228, 47);
+            this.currentPersonDescriptionTextBox.TabIndex = 3;
+            this.currentPersonDescriptionTextBox.Text = "";
             // 
-            // textBox2
+            // currentPersonNameTextBox
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(92, 20);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(228, 20);
-            this.textBox2.TabIndex = 2;
+            this.currentPersonNameTextBox.Enabled = false;
+            this.currentPersonNameTextBox.Location = new System.Drawing.Point(92, 20);
+            this.currentPersonNameTextBox.Name = "currentPersonNameTextBox";
+            this.currentPersonNameTextBox.Size = new System.Drawing.Size(228, 20);
+            this.currentPersonNameTextBox.TabIndex = 2;
             // 
             // label3
             // 
@@ -298,7 +298,7 @@
             this.groupBox3.Controls.Add(this.groupBoxCustomWriteOff);
             this.groupBox3.Controls.Add(this.groupBoxLeave);
             this.groupBox3.Controls.Add(this.groupBoxPayment);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.currentEventDateTextBox);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Location = new System.Drawing.Point(636, 224);
             this.groupBox3.Name = "groupBox3";
@@ -368,14 +368,14 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Уплачено";
             // 
-            // textBox3
+            // currentEventDateTextBox
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(51, 26);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(269, 20);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.currentEventDateTextBox.Enabled = false;
+            this.currentEventDateTextBox.Location = new System.Drawing.Point(51, 26);
+            this.currentEventDateTextBox.Name = "currentEventDateTextBox";
+            this.currentEventDateTextBox.Size = new System.Drawing.Size(269, 20);
+            this.currentEventDateTextBox.TabIndex = 5;
+            this.currentEventDateTextBox.TextChanged += new System.EventHandler(this.currentEventDateTextBox_TextChanged);
             // 
             // label6
             // 
@@ -388,12 +388,12 @@
             // 
             // groupBoxContract
             // 
-            this.groupBoxContract.Controls.Add(this.textBox6);
+            this.groupBoxContract.Controls.Add(this.currentEventTermEndDateUpDown);
             this.groupBoxContract.Controls.Add(this.label15);
             this.groupBoxContract.Controls.Add(this.label11);
-            this.groupBoxContract.Controls.Add(this.numericUpDown3);
-            this.groupBoxContract.Controls.Add(this.numericUpDown2);
-            this.groupBoxContract.Controls.Add(this.numericUpDown4);
+            this.groupBoxContract.Controls.Add(this.currentEventTermPenaltyUpDown);
+            this.groupBoxContract.Controls.Add(this.currentEventTermPaymentDateUpDown);
+            this.groupBoxContract.Controls.Add(this.currentEventTermPaymentUpDown);
             this.groupBoxContract.Controls.Add(this.label10);
             this.groupBoxContract.Controls.Add(this.label12);
             this.groupBoxContract.Controls.Add(this.label13);
@@ -404,13 +404,13 @@
             this.groupBoxContract.TabStop = false;
             this.groupBoxContract.Text = "Информация о договоре";
             // 
-            // textBox6
+            // currentEventTermEndDateUpDown
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(9, 149);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(298, 20);
-            this.textBox6.TabIndex = 30;
+            this.currentEventTermEndDateUpDown.Enabled = false;
+            this.currentEventTermEndDateUpDown.Location = new System.Drawing.Point(9, 149);
+            this.currentEventTermEndDateUpDown.Name = "currentEventTermEndDateUpDown";
+            this.currentEventTermEndDateUpDown.Size = new System.Drawing.Size(298, 20);
+            this.currentEventTermEndDateUpDown.TabIndex = 30;
             // 
             // label15
             // 
@@ -429,61 +429,61 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "         ";
             // 
-            // numericUpDown3
+            // currentEventTermPenaltyUpDown
             // 
-            this.numericUpDown3.DecimalPlaces = 5;
-            this.numericUpDown3.Enabled = false;
-            this.numericUpDown3.Location = new System.Drawing.Point(9, 109);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.currentEventTermPenaltyUpDown.DecimalPlaces = 5;
+            this.currentEventTermPenaltyUpDown.Enabled = false;
+            this.currentEventTermPenaltyUpDown.Location = new System.Drawing.Point(9, 109);
+            this.currentEventTermPenaltyUpDown.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(346, 20);
-            this.numericUpDown3.TabIndex = 28;
+            this.currentEventTermPenaltyUpDown.Name = "currentEventTermPenaltyUpDown";
+            this.currentEventTermPenaltyUpDown.Size = new System.Drawing.Size(346, 20);
+            this.currentEventTermPenaltyUpDown.TabIndex = 28;
             // 
-            // numericUpDown2
+            // currentEventTermPaymentDateUpDown
             // 
-            this.numericUpDown2.Enabled = false;
-            this.numericUpDown2.Location = new System.Drawing.Point(9, 70);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.currentEventTermPaymentDateUpDown.Enabled = false;
+            this.currentEventTermPaymentDateUpDown.Location = new System.Drawing.Point(9, 70);
+            this.currentEventTermPaymentDateUpDown.Maximum = new decimal(new int[] {
             28,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.currentEventTermPaymentDateUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(324, 20);
-            this.numericUpDown2.TabIndex = 27;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.currentEventTermPaymentDateUpDown.Name = "currentEventTermPaymentDateUpDown";
+            this.currentEventTermPaymentDateUpDown.Size = new System.Drawing.Size(324, 20);
+            this.currentEventTermPaymentDateUpDown.TabIndex = 27;
+            this.currentEventTermPaymentDateUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // numericUpDown4
+            // currentEventTermPaymentUpDown
             // 
-            this.numericUpDown4.Enabled = false;
-            this.numericUpDown4.InterceptArrowKeys = false;
-            this.numericUpDown4.Location = new System.Drawing.Point(9, 33);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+            this.currentEventTermPaymentUpDown.Enabled = false;
+            this.currentEventTermPaymentUpDown.InterceptArrowKeys = false;
+            this.currentEventTermPaymentUpDown.Location = new System.Drawing.Point(9, 33);
+            this.currentEventTermPaymentUpDown.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.numericUpDown4.Minimum = new decimal(new int[] {
+            this.currentEventTermPaymentUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             -2147483648});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(324, 20);
-            this.numericUpDown4.TabIndex = 26;
+            this.currentEventTermPaymentUpDown.Name = "currentEventTermPaymentUpDown";
+            this.currentEventTermPaymentUpDown.Size = new System.Drawing.Size(324, 20);
+            this.currentEventTermPaymentUpDown.TabIndex = 26;
             // 
             // label10
             // 
@@ -512,40 +512,40 @@
             this.label13.TabIndex = 23;
             this.label13.Text = "Сумма оплаты";
             // 
-            // button6
+            // deleteEventButton
             // 
-            this.button6.Location = new System.Drawing.Point(363, 436);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(266, 28);
-            this.button6.TabIndex = 11;
-            this.button6.Text = "Удалить событие";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.deleteEventButton.Location = new System.Drawing.Point(363, 436);
+            this.deleteEventButton.Name = "deleteEventButton";
+            this.deleteEventButton.Size = new System.Drawing.Size(266, 28);
+            this.deleteEventButton.TabIndex = 11;
+            this.deleteEventButton.Text = "Удалить событие";
+            this.deleteEventButton.UseVisualStyleBackColor = true;
+            this.deleteEventButton.Click += new System.EventHandler(this.deleteEventButton_Click);
             // 
-            // button7
+            // deletePersonButton
             // 
-            this.button7.Location = new System.Drawing.Point(187, 436);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(169, 28);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "Удалить арендатора";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.deletePersonButton.Location = new System.Drawing.Point(187, 436);
+            this.deletePersonButton.Name = "deletePersonButton";
+            this.deletePersonButton.Size = new System.Drawing.Size(169, 28);
+            this.deletePersonButton.TabIndex = 10;
+            this.deletePersonButton.Text = "Удалить арендатора";
+            this.deletePersonButton.UseVisualStyleBackColor = true;
+            this.deletePersonButton.Click += new System.EventHandler(this.deletePersonButton_Click);
             // 
-            // button8
+            // deleteAddressButton
             // 
-            this.button8.Location = new System.Drawing.Point(12, 436);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(169, 28);
-            this.button8.TabIndex = 9;
-            this.button8.Text = "Удалить помещение";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.deleteAddressButton.Location = new System.Drawing.Point(12, 436);
+            this.deleteAddressButton.Name = "deleteAddressButton";
+            this.deleteAddressButton.Size = new System.Drawing.Size(169, 28);
+            this.deleteAddressButton.TabIndex = 9;
+            this.deleteAddressButton.Text = "Удалить помещение";
+            this.deleteAddressButton.UseVisualStyleBackColor = true;
+            this.deleteAddressButton.Click += new System.EventHandler(this.deleteAddressButton_Click);
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Controls.Add(this.textBox4);
+            this.groupBox4.Controls.Add(this.todayPenaltyTextBox);
+            this.groupBox4.Controls.Add(this.todayDebtTextBox);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Location = new System.Drawing.Point(969, 12);
@@ -555,21 +555,21 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Состояние на сегодня";
             // 
-            // textBox5
+            // todayPenaltyTextBox
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(58, 44);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(178, 20);
-            this.textBox5.TabIndex = 3;
+            this.todayPenaltyTextBox.Enabled = false;
+            this.todayPenaltyTextBox.Location = new System.Drawing.Point(58, 44);
+            this.todayPenaltyTextBox.Name = "todayPenaltyTextBox";
+            this.todayPenaltyTextBox.Size = new System.Drawing.Size(178, 20);
+            this.todayPenaltyTextBox.TabIndex = 3;
             // 
-            // textBox4
+            // todayDebtTextBox
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(58, 20);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(178, 20);
-            this.textBox4.TabIndex = 2;
+            this.todayDebtTextBox.Enabled = false;
+            this.todayDebtTextBox.Location = new System.Drawing.Point(58, 20);
+            this.todayDebtTextBox.Name = "todayDebtTextBox";
+            this.todayDebtTextBox.Size = new System.Drawing.Size(178, 20);
+            this.todayDebtTextBox.TabIndex = 2;
             // 
             // label14
             // 
@@ -619,13 +619,13 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // textBox7
+            // lastTermEndDateTextBox
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(969, 138);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(178, 20);
-            this.textBox7.TabIndex = 5;
+            this.lastTermEndDateTextBox.Enabled = false;
+            this.lastTermEndDateTextBox.Location = new System.Drawing.Point(969, 138);
+            this.lastTermEndDateTextBox.Name = "lastTermEndDateTextBox";
+            this.lastTermEndDateTextBox.Size = new System.Drawing.Size(178, 20);
+            this.lastTermEndDateTextBox.TabIndex = 5;
             // 
             // label16
             // 
@@ -638,11 +638,11 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button10);
-            this.groupBox5.Controls.Add(this.button9);
-            this.groupBox5.Controls.Add(this.monthCalendar1);
-            this.groupBox5.Controls.Add(this.textBox8);
-            this.groupBox5.Controls.Add(this.textBox9);
+            this.groupBox5.Controls.Add(this.exportXLSButton);
+            this.groupBox5.Controls.Add(this.countCurrentButton);
+            this.groupBox5.Controls.Add(this.curDateCalendar);
+            this.groupBox5.Controls.Add(this.currentPenaltyTextBox);
+            this.groupBox5.Controls.Add(this.currentDebtTextBox);
             this.groupBox5.Controls.Add(this.label17);
             this.groupBox5.Controls.Add(this.label18);
             this.groupBox5.Location = new System.Drawing.Point(969, 164);
@@ -652,52 +652,52 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Состояние на";
             // 
-            // button10
+            // exportXLSButton
             // 
-            this.button10.Location = new System.Drawing.Point(13, 272);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(222, 27);
-            this.button10.TabIndex = 12;
-            this.button10.Text = "Экспорт в .xls";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.exportXLSButton.Location = new System.Drawing.Point(13, 272);
+            this.exportXLSButton.Name = "exportXLSButton";
+            this.exportXLSButton.Size = new System.Drawing.Size(222, 27);
+            this.exportXLSButton.TabIndex = 12;
+            this.exportXLSButton.Text = "Экспорт в .xls";
+            this.exportXLSButton.UseVisualStyleBackColor = true;
+            this.exportXLSButton.Click += new System.EventHandler(this.exportXLSButton_Click);
             // 
-            // button9
+            // countCurrentButton
             // 
-            this.button9.Location = new System.Drawing.Point(11, 237);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(225, 27);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "Рассчитать";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.countCurrentButton.Location = new System.Drawing.Point(11, 237);
+            this.countCurrentButton.Name = "countCurrentButton";
+            this.countCurrentButton.Size = new System.Drawing.Size(225, 27);
+            this.countCurrentButton.TabIndex = 11;
+            this.countCurrentButton.Text = "Рассчитать";
+            this.countCurrentButton.UseVisualStyleBackColor = true;
+            this.countCurrentButton.Click += new System.EventHandler(this.countCurrentButton_Click);
             // 
-            // monthCalendar1
+            // curDateCalendar
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(11, 13);
-            this.monthCalendar1.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
-            this.monthCalendar1.MaxSelectionCount = 1;
-            this.monthCalendar1.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.ShowToday = false;
-            this.monthCalendar1.ShowTodayCircle = false;
-            this.monthCalendar1.TabIndex = 10;
+            this.curDateCalendar.Location = new System.Drawing.Point(11, 13);
+            this.curDateCalendar.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.curDateCalendar.MaxSelectionCount = 1;
+            this.curDateCalendar.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.curDateCalendar.Name = "curDateCalendar";
+            this.curDateCalendar.ShowToday = false;
+            this.curDateCalendar.ShowTodayCircle = false;
+            this.curDateCalendar.TabIndex = 10;
             // 
-            // textBox8
+            // currentPenaltyTextBox
             // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(58, 211);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(178, 20);
-            this.textBox8.TabIndex = 3;
+            this.currentPenaltyTextBox.Enabled = false;
+            this.currentPenaltyTextBox.Location = new System.Drawing.Point(58, 211);
+            this.currentPenaltyTextBox.Name = "currentPenaltyTextBox";
+            this.currentPenaltyTextBox.Size = new System.Drawing.Size(178, 20);
+            this.currentPenaltyTextBox.TabIndex = 3;
             // 
-            // textBox9
+            // currentDebtTextBox
             // 
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(58, 187);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(178, 20);
-            this.textBox9.TabIndex = 2;
+            this.currentDebtTextBox.Enabled = false;
+            this.currentDebtTextBox.Location = new System.Drawing.Point(58, 187);
+            this.currentDebtTextBox.Name = "currentDebtTextBox";
+            this.currentDebtTextBox.Size = new System.Drawing.Size(178, 20);
+            this.currentDebtTextBox.TabIndex = 2;
             // 
             // label17
             // 
@@ -800,22 +800,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1223, 470);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.lastTermEndDateTextBox);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBoxContract);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.deleteEventButton);
+            this.Controls.Add(this.deletePersonButton);
+            this.Controls.Add(this.deleteAddressButton);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox3);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.newEventButton);
+            this.Controls.Add(this.newPersonButton);
+            this.Controls.Add(this.newAddressButton);
+            this.Controls.Add(this.eventListBox);
+            this.Controls.Add(this.personListBox);
+            this.Controls.Add(this.addressListBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -832,9 +832,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBoxContract.ResumeLayout(false);
             this.groupBoxContract.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentEventTermPenaltyUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentEventTermPaymentDateUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentEventTermPaymentUpDown)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -851,26 +851,26 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ListBox addressListBox;
+        private System.Windows.Forms.ListBox personListBox;
+        private System.Windows.Forms.ListBox eventListBox;
+        private System.Windows.Forms.Button newAddressButton;
+        private System.Windows.Forms.Button newPersonButton;
+        private System.Windows.Forms.Button newEventButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button changeCurrentAddressInfoButton;
+        private System.Windows.Forms.RichTextBox currentAddressDescriptionTextBox;
+        private System.Windows.Forms.TextBox currentAddressNameTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button changeCurrentPersonInfoButton;
+        private System.Windows.Forms.RichTextBox currentPersonDescriptionTextBox;
+        private System.Windows.Forms.TextBox currentPersonNameTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox currentEventDateTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBoxPayment;
         private System.Windows.Forms.Label label7;
@@ -879,19 +879,19 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBoxContract;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown currentEventTermPenaltyUpDown;
+        private System.Windows.Forms.NumericUpDown currentEventTermPaymentDateUpDown;
+        private System.Windows.Forms.NumericUpDown currentEventTermPaymentUpDown;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBoxLeave;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button deleteEventButton;
+        private System.Windows.Forms.Button deletePersonButton;
+        private System.Windows.Forms.Button deleteAddressButton;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox todayPenaltyTextBox;
+        private System.Windows.Forms.TextBox todayDebtTextBox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -899,18 +899,18 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox currentEventTermEndDateUpDown;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox lastTermEndDateTextBox;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox currentPenaltyTextBox;
+        private System.Windows.Forms.TextBox currentDebtTextBox;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.MonthCalendar curDateCalendar;
+        private System.Windows.Forms.Button countCurrentButton;
+        private System.Windows.Forms.Button exportXLSButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog2;
         private System.Windows.Forms.GroupBox groupBoxCustomWriteOff;
         private System.Windows.Forms.RichTextBox richTextBox3;

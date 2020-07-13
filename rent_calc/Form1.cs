@@ -13,6 +13,7 @@ using NPOI.XSSF.UserModel;
 using NPOI.SS.UserModel;
 
 using rent_calc.Events;
+using rent_calc.NewObjectForms;
 namespace rent_calc
 {
     public partial class Form1 : Form

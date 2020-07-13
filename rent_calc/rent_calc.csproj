@@ -93,28 +93,28 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbstractNew.cs">
+    <Compile Include="NewObjForms\AbstractNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbstractNew.Designer.cs">
+    <Compile Include="NewObjForms\AbstractNew.Designer.cs">
       <DependentUpon>AbstractNew.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewEvent.cs">
+    <Compile Include="NewObjForms\NewEvent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewEvent.Designer.cs">
+    <Compile Include="NewObjForms\NewEvent.Designer.cs">
       <DependentUpon>NewEvent.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewPerson.cs">
+    <Compile Include="NewObjForms\NewPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewPerson.Designer.cs">
+    <Compile Include="NewObjForms\NewPerson.Designer.cs">
       <DependentUpon>NewPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewRoom.cs">
+    <Compile Include="NewObjForms\NewRoom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewRoom.Designer.cs">
+    <Compile Include="NewObjForms\NewRoom.Designer.cs">
       <DependentUpon>NewRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -122,16 +122,16 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AbstractNew.resx">
+    <EmbeddedResource Include="NewObjForms\AbstractNew.resx">
       <DependentUpon>AbstractNew.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewEvent.resx">
+    <EmbeddedResource Include="NewObjForms\NewEvent.resx">
       <DependentUpon>NewEvent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewPerson.resx">
+    <EmbeddedResource Include="NewObjForms\NewPerson.resx">
       <DependentUpon>NewPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewRoom.resx">
+    <EmbeddedResource Include="NewObjForms\NewRoom.resx">
       <DependentUpon>NewRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

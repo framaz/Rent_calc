@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace rent_calc
+namespace rent_calc.NewObjectForms
 {
     [Serializable]
     public partial class AbstractNew : Form

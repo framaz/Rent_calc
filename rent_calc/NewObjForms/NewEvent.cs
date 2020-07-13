@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using rent_calc.Events;
 
-namespace rent_calc
+namespace rent_calc.NewObjectForms
 {
     public partial class NewEvent : AbstractNew
     {

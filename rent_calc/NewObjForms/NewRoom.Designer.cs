@@ -1,4 +1,4 @@
-﻿namespace rent_calc
+﻿namespace rent_calc.NewObjectForms
 {
     partial class NewRoom
     {

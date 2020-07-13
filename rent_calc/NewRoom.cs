@@ -17,14 +17,9 @@ namespace rent_calc
         }
         protected override GenericNewHelper getContents()
         {
-            if (textBox1.Text.Length < 3)
+            if (addressNameTextBox.Text.Length < 3)
                 return new ErrorHelper("", "Введие адрес более 3 букв");
-            return new NewRoomHelper(textBox1.Text,textBox2.Text);
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            return new NewRoomHelper(addressNameTextBox.Text,addressDescriptionTextBox2.Text);
         }
     }
     public class NewRoomHelper : GenericNewHelper

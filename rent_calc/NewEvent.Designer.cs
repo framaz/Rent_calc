@@ -28,99 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.addressLabel = new System.Windows.Forms.Label();
+            this.personLabel = new System.Windows.Forms.Label();
+            this.eventTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.paymentGroupBox = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.paymentSumUpDown = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.leaveGroupBox = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.eventDateMonthCalendar = new System.Windows.Forms.MonthCalendar();
+            this.newTermsGroupBox = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
+            this.termsEndMonthCalendar = new System.Windows.Forms.MonthCalendar();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.newTermsPenaltyUpDown = new System.Windows.Forms.NumericUpDown();
+            this.payDateUpDown = new System.Windows.Forms.NumericUpDown();
+            this.newTermsPaymentUpDown = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.newPaymentSetGroupBox = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.newPaymentUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.customWriteOffGroupBox = new System.Windows.Forms.GroupBox();
+            this.customWriteOffCommentTextBox = new System.Windows.Forms.RichTextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.customWriteOffSumUpDown = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.label15 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            this.paymentGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentSumUpDown)).BeginInit();
+            this.newTermsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.newTermsPenaltyUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.payDateUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newTermsPaymentUpDown)).BeginInit();
+            this.newPaymentSetGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.newPaymentUpDown)).BeginInit();
+            this.customWriteOffGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customWriteOffSumUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // addressLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.addressLabel.AutoSize = true;
+            this.addressLabel.Location = new System.Drawing.Point(13, 13);
+            this.addressLabel.Name = "addressLabel";
+            this.addressLabel.Size = new System.Drawing.Size(35, 13);
+            this.addressLabel.TabIndex = 2;
+            this.addressLabel.Text = "label1";
             // 
-            // label2
+            // personLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.personLabel.AutoSize = true;
+            this.personLabel.Location = new System.Drawing.Point(13, 30);
+            this.personLabel.Name = "personLabel";
+            this.personLabel.Size = new System.Drawing.Size(35, 13);
+            this.personLabel.TabIndex = 3;
+            this.personLabel.Text = "label2";
             // 
-            // comboBox1
+            // eventTypeComboBox
             // 
-            this.comboBox1.DisplayMember = "1";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.eventTypeComboBox.DisplayMember = "1";
+            this.eventTypeComboBox.FormattingEnabled = true;
+            this.eventTypeComboBox.Items.AddRange(new object[] {
             "Внесение оплаты",
             "Заключение нового договора",
             "Прекращение аренды",
             "Изменение оплаты аренды",
             "Начисление переменной части арендной платы"});
-            this.comboBox1.Location = new System.Drawing.Point(13, 47);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(455, 21);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.ValueMember = "0";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.eventTypeComboBox.Location = new System.Drawing.Point(13, 47);
+            this.eventTypeComboBox.Name = "eventTypeComboBox";
+            this.eventTypeComboBox.Size = new System.Drawing.Size(455, 21);
+            this.eventTypeComboBox.TabIndex = 4;
+            this.eventTypeComboBox.ValueMember = "0";
+            this.eventTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.eventTypeComboBox1_SelectedIndexChanged);
             // 
-            // groupBox1
+            // paymentGroupBox
             // 
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(13, 81);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(278, 175);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Visible = false;
+            this.paymentGroupBox.Controls.Add(this.label7);
+            this.paymentGroupBox.Controls.Add(this.label5);
+            this.paymentGroupBox.Controls.Add(this.paymentSumUpDown);
+            this.paymentGroupBox.Controls.Add(this.label4);
+            this.paymentGroupBox.Enabled = false;
+            this.paymentGroupBox.Location = new System.Drawing.Point(13, 81);
+            this.paymentGroupBox.Name = "paymentGroupBox";
+            this.paymentGroupBox.Size = new System.Drawing.Size(278, 175);
+            this.paymentGroupBox.TabIndex = 5;
+            this.paymentGroupBox.TabStop = false;
+            this.paymentGroupBox.Visible = false;
             // 
             // label7
             // 
@@ -137,17 +137,17 @@
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 2;
             // 
-            // numericUpDown1
+            // paymentSumUpDown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(10, 37);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.paymentSumUpDown.Location = new System.Drawing.Point(10, 37);
+            this.paymentSumUpDown.Maximum = new decimal(new int[] {
             10000000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(98, 20);
-            this.numericUpDown1.TabIndex = 1;
+            this.paymentSumUpDown.Name = "paymentSumUpDown";
+            this.paymentSumUpDown.Size = new System.Drawing.Size(98, 20);
+            this.paymentSumUpDown.TabIndex = 1;
             // 
             // label4
             // 
@@ -158,14 +158,14 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Уплачено";
             // 
-            // groupBox3
+            // leaveGroupBox
             // 
-            this.groupBox3.Location = new System.Drawing.Point(13, 81);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(279, 175);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Выезд";
+            this.leaveGroupBox.Location = new System.Drawing.Point(13, 81);
+            this.leaveGroupBox.Name = "leaveGroupBox";
+            this.leaveGroupBox.Size = new System.Drawing.Size(279, 175);
+            this.leaveGroupBox.TabIndex = 7;
+            this.leaveGroupBox.TabStop = false;
+            this.leaveGroupBox.Text = "Выезд";
             // 
             // label6
             // 
@@ -176,35 +176,35 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Дата";
             // 
-            // monthCalendar1
+            // eventDateMonthCalendar
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(304, 94);
-            this.monthCalendar1.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
-            this.monthCalendar1.MaxSelectionCount = 1;
-            this.monthCalendar1.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.ShowToday = false;
-            this.monthCalendar1.ShowTodayCircle = false;
-            this.monthCalendar1.TabIndex = 10;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.eventDateMonthCalendar.Location = new System.Drawing.Point(304, 94);
+            this.eventDateMonthCalendar.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.eventDateMonthCalendar.MaxSelectionCount = 1;
+            this.eventDateMonthCalendar.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.eventDateMonthCalendar.Name = "eventDateMonthCalendar";
+            this.eventDateMonthCalendar.ShowToday = false;
+            this.eventDateMonthCalendar.ShowTodayCircle = false;
+            this.eventDateMonthCalendar.TabIndex = 10;
+            this.eventDateMonthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
-            // groupBox2
+            // newTermsGroupBox
             // 
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.monthCalendar2);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.numericUpDown3);
-            this.groupBox2.Controls.Add(this.numericUpDown2);
-            this.groupBox2.Controls.Add(this.numericUpDown4);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(13, 81);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(279, 339);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Заключение договора";
+            this.newTermsGroupBox.Controls.Add(this.label12);
+            this.newTermsGroupBox.Controls.Add(this.termsEndMonthCalendar);
+            this.newTermsGroupBox.Controls.Add(this.label11);
+            this.newTermsGroupBox.Controls.Add(this.newTermsPenaltyUpDown);
+            this.newTermsGroupBox.Controls.Add(this.payDateUpDown);
+            this.newTermsGroupBox.Controls.Add(this.newTermsPaymentUpDown);
+            this.newTermsGroupBox.Controls.Add(this.label8);
+            this.newTermsGroupBox.Controls.Add(this.label9);
+            this.newTermsGroupBox.Controls.Add(this.label10);
+            this.newTermsGroupBox.Location = new System.Drawing.Point(13, 81);
+            this.newTermsGroupBox.Name = "newTermsGroupBox";
+            this.newTermsGroupBox.Size = new System.Drawing.Size(279, 339);
+            this.newTermsGroupBox.TabIndex = 6;
+            this.newTermsGroupBox.TabStop = false;
+            this.newTermsGroupBox.Text = "Заключение договора";
             // 
             // label12
             // 
@@ -215,16 +215,16 @@
             this.label12.TabIndex = 29;
             this.label12.Text = "Дата окончания договора";
             // 
-            // monthCalendar2
+            // termsEndMonthCalendar
             // 
-            this.monthCalendar2.Location = new System.Drawing.Point(12, 165);
-            this.monthCalendar2.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
-            this.monthCalendar2.MaxSelectionCount = 1;
-            this.monthCalendar2.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.monthCalendar2.Name = "monthCalendar2";
-            this.monthCalendar2.ShowToday = false;
-            this.monthCalendar2.ShowTodayCircle = false;
-            this.monthCalendar2.TabIndex = 11;
+            this.termsEndMonthCalendar.Location = new System.Drawing.Point(12, 165);
+            this.termsEndMonthCalendar.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.termsEndMonthCalendar.MaxSelectionCount = 1;
+            this.termsEndMonthCalendar.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.termsEndMonthCalendar.Name = "termsEndMonthCalendar";
+            this.termsEndMonthCalendar.ShowToday = false;
+            this.termsEndMonthCalendar.ShowTodayCircle = false;
+            this.termsEndMonthCalendar.TabIndex = 11;
             // 
             // label11
             // 
@@ -234,53 +234,53 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "         ";
             // 
-            // numericUpDown3
+            // newTermsPenaltyUpDown
             // 
-            this.numericUpDown3.DecimalPlaces = 5;
-            this.numericUpDown3.Location = new System.Drawing.Point(9, 109);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.newTermsPenaltyUpDown.DecimalPlaces = 5;
+            this.newTermsPenaltyUpDown.Location = new System.Drawing.Point(9, 109);
+            this.newTermsPenaltyUpDown.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(248, 20);
-            this.numericUpDown3.TabIndex = 28;
+            this.newTermsPenaltyUpDown.Name = "newTermsPenaltyUpDown";
+            this.newTermsPenaltyUpDown.Size = new System.Drawing.Size(248, 20);
+            this.newTermsPenaltyUpDown.TabIndex = 28;
             // 
-            // numericUpDown2
+            // payDateUpDown
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(9, 70);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.payDateUpDown.Location = new System.Drawing.Point(9, 70);
+            this.payDateUpDown.Maximum = new decimal(new int[] {
             28,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.payDateUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(248, 20);
-            this.numericUpDown2.TabIndex = 27;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.payDateUpDown.Name = "payDateUpDown";
+            this.payDateUpDown.Size = new System.Drawing.Size(248, 20);
+            this.payDateUpDown.TabIndex = 27;
+            this.payDateUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // numericUpDown4
+            // newTermsPaymentUpDown
             // 
-            this.numericUpDown4.InterceptArrowKeys = false;
-            this.numericUpDown4.Location = new System.Drawing.Point(9, 33);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+            this.newTermsPaymentUpDown.InterceptArrowKeys = false;
+            this.newTermsPaymentUpDown.Location = new System.Drawing.Point(9, 33);
+            this.newTermsPaymentUpDown.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(248, 20);
-            this.numericUpDown4.TabIndex = 26;
+            this.newTermsPaymentUpDown.Name = "newTermsPaymentUpDown";
+            this.newTermsPaymentUpDown.Size = new System.Drawing.Size(248, 20);
+            this.newTermsPaymentUpDown.TabIndex = 26;
             // 
             // label8
             // 
@@ -309,44 +309,80 @@
             this.label10.TabIndex = 23;
             this.label10.Text = "Сумма оплаты";
             // 
-            // groupBox4
+            // newPaymentSetGroupBox
             // 
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.numericUpDown5);
-            this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Enabled = false;
-            this.groupBox4.Location = new System.Drawing.Point(13, 81);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(278, 175);
-            this.groupBox4.TabIndex = 11;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Visible = false;
+            this.newPaymentSetGroupBox.Controls.Add(this.label13);
+            this.newPaymentSetGroupBox.Controls.Add(this.label14);
+            this.newPaymentSetGroupBox.Controls.Add(this.newPaymentUpDown);
+            this.newPaymentSetGroupBox.Controls.Add(this.label15);
+            this.newPaymentSetGroupBox.Enabled = false;
+            this.newPaymentSetGroupBox.Location = new System.Drawing.Point(13, 81);
+            this.newPaymentSetGroupBox.Name = "newPaymentSetGroupBox";
+            this.newPaymentSetGroupBox.Size = new System.Drawing.Size(278, 175);
+            this.newPaymentSetGroupBox.TabIndex = 11;
+            this.newPaymentSetGroupBox.TabStop = false;
+            this.newPaymentSetGroupBox.Visible = false;
             // 
-            // groupBox5
+            // label13
             // 
-            this.groupBox5.Controls.Add(this.richTextBox1);
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.label16);
-            this.groupBox5.Controls.Add(this.label17);
-            this.groupBox5.Controls.Add(this.numericUpDown6);
-            this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Enabled = false;
-            this.groupBox5.Location = new System.Drawing.Point(13, 81);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(278, 175);
-            this.groupBox5.TabIndex = 12;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Начисление переменной части арендной платы";
-            this.groupBox5.Visible = false;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(10, 257);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(0, 13);
+            this.label13.TabIndex = 11;
             // 
-            // richTextBox1
+            // label14
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 85);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(266, 84);
-            this.richTextBox1.TabIndex = 13;
-            this.richTextBox1.Text = "";
+            this.label14.Location = new System.Drawing.Point(90, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(100, 23);
+            this.label14.TabIndex = 2;
+            // 
+            // newPaymentUpDown
+            // 
+            this.newPaymentUpDown.Location = new System.Drawing.Point(10, 37);
+            this.newPaymentUpDown.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.newPaymentUpDown.Name = "newPaymentUpDown";
+            this.newPaymentUpDown.Size = new System.Drawing.Size(98, 20);
+            this.newPaymentUpDown.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(7, 20);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(77, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Новая оплата";
+            // 
+            // customWriteOffGroupBox
+            // 
+            this.customWriteOffGroupBox.Controls.Add(this.customWriteOffCommentTextBox);
+            this.customWriteOffGroupBox.Controls.Add(this.label19);
+            this.customWriteOffGroupBox.Controls.Add(this.label16);
+            this.customWriteOffGroupBox.Controls.Add(this.label17);
+            this.customWriteOffGroupBox.Controls.Add(this.customWriteOffSumUpDown);
+            this.customWriteOffGroupBox.Controls.Add(this.label18);
+            this.customWriteOffGroupBox.Enabled = false;
+            this.customWriteOffGroupBox.Location = new System.Drawing.Point(13, 81);
+            this.customWriteOffGroupBox.Name = "customWriteOffGroupBox";
+            this.customWriteOffGroupBox.Size = new System.Drawing.Size(278, 175);
+            this.customWriteOffGroupBox.TabIndex = 12;
+            this.customWriteOffGroupBox.TabStop = false;
+            this.customWriteOffGroupBox.Text = "Начисление переменной части арендной платы";
+            this.customWriteOffGroupBox.Visible = false;
+            // 
+            // customWriteOffCommentTextBox
+            // 
+            this.customWriteOffCommentTextBox.Location = new System.Drawing.Point(6, 85);
+            this.customWriteOffCommentTextBox.Name = "customWriteOffCommentTextBox";
+            this.customWriteOffCommentTextBox.Size = new System.Drawing.Size(266, 84);
+            this.customWriteOffCommentTextBox.TabIndex = 13;
+            this.customWriteOffCommentTextBox.Text = "";
             // 
             // label19
             // 
@@ -374,15 +410,15 @@
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(10, 37);
-            this.numericUpDown6.Maximum = new decimal(new int[] {
+            this.customWriteOffSumUpDown.Location = new System.Drawing.Point(10, 37);
+            this.customWriteOffSumUpDown.Maximum = new decimal(new int[] {
             10000000,
             0,
             0,
             0});
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(98, 20);
-            this.numericUpDown6.TabIndex = 1;
+            this.customWriteOffSumUpDown.Name = "numericUpDown6";
+            this.customWriteOffSumUpDown.Size = new System.Drawing.Size(98, 20);
+            this.customWriteOffSumUpDown.TabIndex = 1;
             // 
             // label18
             // 
@@ -393,83 +429,47 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "Сумма";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(10, 257);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(0, 13);
-            this.label13.TabIndex = 11;
-            // 
-            // label14
-            // 
-            this.label14.Location = new System.Drawing.Point(90, 37);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(100, 23);
-            this.label14.TabIndex = 2;
-            // 
-            // numericUpDown5
-            // 
-            this.numericUpDown5.Location = new System.Drawing.Point(10, 37);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(98, 20);
-            this.numericUpDown5.TabIndex = 1;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 20);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(77, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Новая оплата";
-            // 
             // NewEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 459);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.customWriteOffGroupBox);
+            this.Controls.Add(this.newPaymentSetGroupBox);
+            this.Controls.Add(this.paymentGroupBox);
+            this.Controls.Add(this.leaveGroupBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.eventDateMonthCalendar);
+            this.Controls.Add(this.newTermsGroupBox);
+            this.Controls.Add(this.eventTypeComboBox);
+            this.Controls.Add(this.personLabel);
+            this.Controls.Add(this.addressLabel);
             this.Name = "NewEvent";
             this.Text = "NewEvent";
-            this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.comboBox1, 0);
-            this.Controls.SetChildIndex(this.groupBox2, 0);
-            this.Controls.SetChildIndex(this.monthCalendar1, 0);
+            this.Controls.SetChildIndex(this.addressLabel, 0);
+            this.Controls.SetChildIndex(this.personLabel, 0);
+            this.Controls.SetChildIndex(this.eventTypeComboBox, 0);
+            this.Controls.SetChildIndex(this.newTermsGroupBox, 0);
+            this.Controls.SetChildIndex(this.eventDateMonthCalendar, 0);
             this.Controls.SetChildIndex(this.label6, 0);
-            this.Controls.SetChildIndex(this.groupBox3, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
-            this.Controls.SetChildIndex(this.groupBox4, 0);
-            this.Controls.SetChildIndex(this.groupBox5, 0);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            this.Controls.SetChildIndex(this.leaveGroupBox, 0);
+            this.Controls.SetChildIndex(this.paymentGroupBox, 0);
+            this.Controls.SetChildIndex(this.newPaymentSetGroupBox, 0);
+            this.Controls.SetChildIndex(this.customWriteOffGroupBox, 0);
+            this.paymentGroupBox.ResumeLayout(false);
+            this.paymentGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentSumUpDown)).EndInit();
+            this.newTermsGroupBox.ResumeLayout(false);
+            this.newTermsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.newTermsPenaltyUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.payDateUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newTermsPaymentUpDown)).EndInit();
+            this.newPaymentSetGroupBox.ResumeLayout(false);
+            this.newPaymentSetGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.newPaymentUpDown)).EndInit();
+            this.customWriteOffGroupBox.ResumeLayout(false);
+            this.customWriteOffGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customWriteOffSumUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,38 +477,38 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label addressLabel;
+        private System.Windows.Forms.Label personLabel;
+        private System.Windows.Forms.ComboBox eventTypeComboBox;
+        private System.Windows.Forms.GroupBox paymentGroupBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown paymentSumUpDown;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar eventDateMonthCalendar;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.GroupBox newTermsGroupBox;
+        private System.Windows.Forms.GroupBox leaveGroupBox;
+        private System.Windows.Forms.NumericUpDown newTermsPenaltyUpDown;
+        private System.Windows.Forms.NumericUpDown payDateUpDown;
+        private System.Windows.Forms.NumericUpDown newTermsPaymentUpDown;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.MonthCalendar monthCalendar2;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.MonthCalendar termsEndMonthCalendar;
+        private System.Windows.Forms.GroupBox newPaymentSetGroupBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown newPaymentUpDown;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.GroupBox customWriteOffGroupBox;
+        private System.Windows.Forms.RichTextBox customWriteOffCommentTextBox;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
+        private System.Windows.Forms.NumericUpDown customWriteOffSumUpDown;
         private System.Windows.Forms.Label label18;
     }
 }

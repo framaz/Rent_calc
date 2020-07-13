@@ -16,62 +16,62 @@ namespace rent_calc
         public NewEvent(string address, string person):base()
         {
             InitializeComponent();
-            label1.Text = address;
-            label2.Text = person;
-            comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            groupBoxes = new GroupBox[] { groupBox1, groupBox2, groupBox3, groupBox4, groupBox5 };
-            comboBox1.SelectedIndex = 0;
-            monthCalendar2.MinDate = monthCalendar1.SelectionStart;
+            addressLabel.Text = address;
+            personLabel.Text = person;
+            eventTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            groupBoxes = new GroupBox[] { paymentGroupBox, newTermsGroupBox, leaveGroupBox, newPaymentSetGroupBox, customWriteOffGroupBox };
+            eventTypeComboBox.SelectedIndex = 0;
+            termsEndMonthCalendar.MinDate = eventDateMonthCalendar.SelectionStart;
         }
         protected override GenericNewHelper getContents()
         {
             //     if (textBox1.Text.Length < 3)
             //       return new ErrorHelper("", "Введие адрес более 3 букв");
-            //    return new NewRoomHelper(textBox1.Text, textBox2.Text);
+            //    return new NewRoomHelper(textBox1.Text, addressDescriptionTextBox2.Text);
             Event myEvent;
-            switch(comboBox1.SelectedIndex)
+            switch(eventTypeComboBox.SelectedIndex)
             {
                 case 0:
-                    myEvent = new PayEvent(monthCalendar1.SelectionStart, (int)numericUpDown1.Value);
+                    myEvent = new PayEvent(eventDateMonthCalendar.SelectionStart, (int)paymentSumUpDown.Value);
                     break;
                 case 1:
-                    DateTime newDate = monthCalendar1.SelectionStart;
-                    DateTime endDate = monthCalendar2.SelectionStart;
-                    DateTime payDay = new DateTime(newDate.Year, newDate.Month, (int)numericUpDown2.Value);
+                    DateTime newDate = eventDateMonthCalendar.SelectionStart;
+                    DateTime endDate = termsEndMonthCalendar.SelectionStart;
+                    DateTime payDay = new DateTime(newDate.Year, newDate.Month, (int)payDateUpDown.Value);
                     if (payDay < newDate)
                         payDay = payDay.AddMonths(1);
-                    myEvent = new ContractChangeEvent(newDate, endDate, new Terms((int)numericUpDown4.Value, newDate, payDay, (double)numericUpDown3.Value));
+                    myEvent = new ContractChangeEvent(newDate, endDate, new Terms((int)newTermsPaymentUpDown.Value, newDate, payDay, (double)newTermsPenaltyUpDown.Value));
                     break;
                 case 2:
-                    myEvent = new LeaveEvent(monthCalendar1.SelectionStart);
+                    myEvent = new LeaveEvent(eventDateMonthCalendar.SelectionStart);
                     break;
                 case 3:
-                    myEvent = new PaymentChangeEvent(monthCalendar1.SelectionStart, (int)numericUpDown5.Value);
+                    myEvent = new PaymentChangeEvent(eventDateMonthCalendar.SelectionStart, (int)newPaymentUpDown.Value);
                     break;
                 case 4:
-                    myEvent = new CustomWriteOff(monthCalendar1.SelectionStart, (int)numericUpDown6.Value,0,richTextBox1.Text);
+                    myEvent = new CustomWriteOff(eventDateMonthCalendar.SelectionStart, (int)customWriteOffSumUpDown.Value, 0, customWriteOffCommentTextBox.Text);
                     break;
                 default:
-                    myEvent = new LeaveEvent(monthCalendar1.SelectionStart);
+                    myEvent = new LeaveEvent(eventDateMonthCalendar.SelectionStart);
                     break;
             }
             return new NewEventHelper(myEvent);
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void eventTypeComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach(GroupBox i in groupBoxes)
             {
                 i.Visible = false;
                 i.Enabled = false;
             }
-            groupBoxes[comboBox1.SelectedIndex].Visible = true;
-            groupBoxes[comboBox1.SelectedIndex].Enabled = true;
+            groupBoxes[eventTypeComboBox.SelectedIndex].Visible = true;
+            groupBoxes[eventTypeComboBox.SelectedIndex].Enabled = true;
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            monthCalendar2.MinDate = monthCalendar1.SelectionStart;
+            termsEndMonthCalendar.MinDate = eventDateMonthCalendar.SelectionStart;
         }
     }
     public class NewEventHelper : GenericNewHelper

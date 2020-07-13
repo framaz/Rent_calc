@@ -19,53 +19,24 @@ namespace rent_calc
         {
             InitializeComponent();
             label11.Text = address;
-            monthCalendar2.MinDate = monthCalendar1.SelectionStart;
+            endTermMonthCalendar.MinDate = startTermMonthCalendar.SelectionStart;
         }
         protected override GenericNewHelper getContents()
         {
-            if (textBox1.Text.Length < 3)
+            if (nameTextBox.Text.Length < 3)
                 return new ErrorHelper("", "Введие ФИО более 3 букв");
-            if (monthCalendar2.SelectionStart<= monthCalendar1.SelectionStart)
+            if (endTermMonthCalendar.SelectionStart<= startTermMonthCalendar.SelectionStart)
                 return new ErrorHelper("", "Договор оканчивается раньше, чем начинается");
-            return new NewPersonHelper(textBox1.Text, textBox2.Text,monthCalendar1.SelectionStart, monthCalendar2.SelectionStart, (int)numericUpDown1.Value,(int)numericUpDown2.Value,(double)numericUpDown3.Value);
+            return new NewPersonHelper(nameTextBox.Text, descriptionTextBox.Text, startTermMonthCalendar.SelectionStart, endTermMonthCalendar.SelectionStart, (int)rentSumUpDown.Value,(int)paymentDayUpDown.Value,(double)penaltyUpDown.Value);
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void endTermMonthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            //    DateTime date = monthCalendar1.SelectionStart;
+            //    DateTime date = eventDateMonthCalendar.SelectionStart;
             //     label4.Text = date.ToString().Substring(0,11);
-            monthCalendar2.MinDate = monthCalendar1.SelectionStart;
+            endTermMonthCalendar.MinDate = startTermMonthCalendar.SelectionStart;
         }
 
-        private void NewPerson_Load(object sender, EventArgs e)
-        {
-
-        }
     }
     public class NewPersonHelper : GenericNewHelper
     {

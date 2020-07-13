@@ -47,6 +47,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxCustomWriteOff = new System.Windows.Forms.GroupBox();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.label22 = new System.Windows.Forms.Label();
             this.groupBoxLeave = new System.Windows.Forms.GroupBox();
             this.groupBoxPayment = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -89,16 +96,11 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
-            this.groupBoxCustomWriteOff = new System.Windows.Forms.GroupBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBoxCustomWriteOff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.groupBoxPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBoxContract.SuspendLayout();
@@ -108,8 +110,6 @@
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBoxCustomWriteOff.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.SuspendLayout();
             // 
             // addressListBox
@@ -307,6 +307,78 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Информация о событии";
             // 
+            // groupBoxCustomWriteOff
+            // 
+            this.groupBoxCustomWriteOff.Controls.Add(this.richTextBox3);
+            this.groupBoxCustomWriteOff.Controls.Add(this.label19);
+            this.groupBoxCustomWriteOff.Controls.Add(this.label20);
+            this.groupBoxCustomWriteOff.Controls.Add(this.label21);
+            this.groupBoxCustomWriteOff.Controls.Add(this.numericUpDown6);
+            this.groupBoxCustomWriteOff.Controls.Add(this.label22);
+            this.groupBoxCustomWriteOff.Enabled = false;
+            this.groupBoxCustomWriteOff.Location = new System.Drawing.Point(6, 59);
+            this.groupBoxCustomWriteOff.Name = "groupBoxCustomWriteOff";
+            this.groupBoxCustomWriteOff.Size = new System.Drawing.Size(313, 175);
+            this.groupBoxCustomWriteOff.TabIndex = 26;
+            this.groupBoxCustomWriteOff.TabStop = false;
+            this.groupBoxCustomWriteOff.Text = "Начисление переменной части арендной платы";
+            this.groupBoxCustomWriteOff.Visible = false;
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Enabled = false;
+            this.richTextBox3.Location = new System.Drawing.Point(6, 85);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(266, 84);
+            this.richTextBox3.TabIndex = 13;
+            this.richTextBox3.Text = "";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(7, 69);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(77, 13);
+            this.label19.TabIndex = 12;
+            this.label19.Text = "Комментарий";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(10, 257);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(0, 13);
+            this.label20.TabIndex = 11;
+            // 
+            // label21
+            // 
+            this.label21.Location = new System.Drawing.Point(90, 37);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(100, 23);
+            this.label21.TabIndex = 2;
+            // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.Enabled = false;
+            this.numericUpDown6.Location = new System.Drawing.Point(10, 37);
+            this.numericUpDown6.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.Size = new System.Drawing.Size(98, 20);
+            this.numericUpDown6.TabIndex = 1;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(7, 20);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(41, 13);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "Сумма";
+            // 
             // groupBoxLeave
             // 
             this.groupBoxLeave.Location = new System.Drawing.Point(6, 59);
@@ -375,7 +447,6 @@
             this.currentEventDateTextBox.Name = "currentEventDateTextBox";
             this.currentEventDateTextBox.Size = new System.Drawing.Size(269, 20);
             this.currentEventDateTextBox.TabIndex = 5;
-            this.currentEventDateTextBox.TextChanged += new System.EventHandler(this.currentEventDateTextBox_TextChanged);
             // 
             // label6
             // 
@@ -599,7 +670,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1223, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // сохранитьToolStripMenuItem
             // 
@@ -720,79 +790,6 @@
             // saveFileDialog2
             // 
             this.saveFileDialog2.Filter = "Excel|*.xls";
-            this.saveFileDialog2.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog2_FileOk);
-            // 
-            // groupBoxCustomWriteOff
-            // 
-            this.groupBoxCustomWriteOff.Controls.Add(this.richTextBox3);
-            this.groupBoxCustomWriteOff.Controls.Add(this.label19);
-            this.groupBoxCustomWriteOff.Controls.Add(this.label20);
-            this.groupBoxCustomWriteOff.Controls.Add(this.label21);
-            this.groupBoxCustomWriteOff.Controls.Add(this.numericUpDown6);
-            this.groupBoxCustomWriteOff.Controls.Add(this.label22);
-            this.groupBoxCustomWriteOff.Enabled = false;
-            this.groupBoxCustomWriteOff.Location = new System.Drawing.Point(6, 59);
-            this.groupBoxCustomWriteOff.Name = "groupBoxCustomWriteOff";
-            this.groupBoxCustomWriteOff.Size = new System.Drawing.Size(313, 175);
-            this.groupBoxCustomWriteOff.TabIndex = 26;
-            this.groupBoxCustomWriteOff.TabStop = false;
-            this.groupBoxCustomWriteOff.Text = "Начисление переменной части арендной платы";
-            this.groupBoxCustomWriteOff.Visible = false;
-            // 
-            // richTextBox3
-            // 
-            this.richTextBox3.Enabled = false;
-            this.richTextBox3.Location = new System.Drawing.Point(6, 85);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(266, 84);
-            this.richTextBox3.TabIndex = 13;
-            this.richTextBox3.Text = "";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(7, 69);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(77, 13);
-            this.label19.TabIndex = 12;
-            this.label19.Text = "Комментарий";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(10, 257);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(0, 13);
-            this.label20.TabIndex = 11;
-            // 
-            // label21
-            // 
-            this.label21.Location = new System.Drawing.Point(90, 37);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(100, 23);
-            this.label21.TabIndex = 2;
-            // 
-            // numericUpDown6
-            // 
-            this.numericUpDown6.Enabled = false;
-            this.numericUpDown6.Location = new System.Drawing.Point(10, 37);
-            this.numericUpDown6.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(98, 20);
-            this.numericUpDown6.TabIndex = 1;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(7, 20);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(41, 13);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Сумма";
             // 
             // Form1
             // 
@@ -820,13 +817,15 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBoxCustomWriteOff.ResumeLayout(false);
+            this.groupBoxCustomWriteOff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             this.groupBoxPayment.ResumeLayout(false);
             this.groupBoxPayment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -841,9 +840,6 @@
             this.menuStrip1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBoxCustomWriteOff.ResumeLayout(false);
-            this.groupBoxCustomWriteOff.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

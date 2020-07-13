@@ -28,35 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.startTermMonthCalendar = new System.Windows.Forms.MonthCalendar();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.rentSumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.paymentDayUpDown = new System.Windows.Forms.NumericUpDown();
+            this.penaltyUpDown = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
+            this.endTermMonthCalendar = new System.Windows.Forms.MonthCalendar();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentSumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentDayUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.penaltyUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox2
+            // addressDescriptionTextBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(7, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(402, 20);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.descriptionTextBox.Location = new System.Drawing.Point(7, 84);
+            this.descriptionTextBox.Name = "addressDescriptionTextBox2";
+            this.descriptionTextBox.Size = new System.Drawing.Size(402, 20);
+            this.descriptionTextBox.TabIndex = 8;
             // 
             // label2
             // 
@@ -66,15 +65,13 @@
             this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Доп. Информация";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(402, 20);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.nameTextBox.Location = new System.Drawing.Point(7, 46);
+            this.nameTextBox.Name = "textBox1";
+            this.nameTextBox.Size = new System.Drawing.Size(402, 20);
+            this.nameTextBox.TabIndex = 6;
             // 
             // label1
             // 
@@ -84,19 +81,18 @@
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "ФИО";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // monthCalendar1
+            // eventDateMonthCalendar
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(7, 174);
-            this.monthCalendar1.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
-            this.monthCalendar1.MaxSelectionCount = 1;
-            this.monthCalendar1.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.ShowToday = false;
-            this.monthCalendar1.ShowTodayCircle = false;
-            this.monthCalendar1.TabIndex = 9;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.startTermMonthCalendar.Location = new System.Drawing.Point(7, 174);
+            this.startTermMonthCalendar.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.startTermMonthCalendar.MaxSelectionCount = 1;
+            this.startTermMonthCalendar.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.startTermMonthCalendar.Name = "eventDateMonthCalendar";
+            this.startTermMonthCalendar.ShowToday = false;
+            this.startTermMonthCalendar.ShowTodayCircle = false;
+            this.startTermMonthCalendar.TabIndex = 9;
+            this.startTermMonthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.endTermMonthCalendar_DateChanged);
             // 
             // label5
             // 
@@ -143,54 +139,53 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Информация по договору";
             // 
-            // numericUpDown1
+            // paymentSumUpDown
             // 
-            this.numericUpDown1.InterceptArrowKeys = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(187, 191);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.rentSumUpDown.InterceptArrowKeys = false;
+            this.rentSumUpDown.Location = new System.Drawing.Point(187, 191);
+            this.rentSumUpDown.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(248, 20);
-            this.numericUpDown1.TabIndex = 20;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.rentSumUpDown.Name = "paymentSumUpDown";
+            this.rentSumUpDown.Size = new System.Drawing.Size(248, 20);
+            this.rentSumUpDown.TabIndex = 20;
             // 
-            // numericUpDown2
+            // payDateUpDown
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(187, 228);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.paymentDayUpDown.Location = new System.Drawing.Point(187, 228);
+            this.paymentDayUpDown.Maximum = new decimal(new int[] {
             28,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.paymentDayUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(248, 20);
-            this.numericUpDown2.TabIndex = 21;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.paymentDayUpDown.Name = "payDateUpDown";
+            this.paymentDayUpDown.Size = new System.Drawing.Size(248, 20);
+            this.paymentDayUpDown.TabIndex = 21;
+            this.paymentDayUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // numericUpDown3
+            // newTermsPenaltyUpDown
             // 
-            this.numericUpDown3.DecimalPlaces = 5;
-            this.numericUpDown3.Location = new System.Drawing.Point(187, 267);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.penaltyUpDown.DecimalPlaces = 5;
+            this.penaltyUpDown.Location = new System.Drawing.Point(187, 267);
+            this.penaltyUpDown.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(248, 20);
-            this.numericUpDown3.TabIndex = 22;
+            this.penaltyUpDown.Name = "newTermsPenaltyUpDown";
+            this.penaltyUpDown.Size = new System.Drawing.Size(248, 20);
+            this.penaltyUpDown.TabIndex = 22;
             // 
             // label10
             // 
@@ -209,16 +204,16 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "label11";
             // 
-            // monthCalendar2
+            // termsEndMonthCalendar
             // 
-            this.monthCalendar2.Location = new System.Drawing.Point(7, 362);
-            this.monthCalendar2.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
-            this.monthCalendar2.MaxSelectionCount = 1;
-            this.monthCalendar2.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.monthCalendar2.Name = "monthCalendar2";
-            this.monthCalendar2.ShowToday = false;
-            this.monthCalendar2.ShowTodayCircle = false;
-            this.monthCalendar2.TabIndex = 25;
+            this.endTermMonthCalendar.Location = new System.Drawing.Point(7, 362);
+            this.endTermMonthCalendar.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.endTermMonthCalendar.MaxSelectionCount = 1;
+            this.endTermMonthCalendar.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.endTermMonthCalendar.Name = "termsEndMonthCalendar";
+            this.endTermMonthCalendar.ShowToday = false;
+            this.endTermMonthCalendar.ShowTodayCircle = false;
+            this.endTermMonthCalendar.TabIndex = 25;
             // 
             // label4
             // 
@@ -235,45 +230,44 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 579);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.monthCalendar2);
+            this.Controls.Add(this.endTermMonthCalendar);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.penaltyUpDown);
+            this.Controls.Add(this.paymentDayUpDown);
+            this.Controls.Add(this.rentSumUpDown);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.startTermMonthCalendar);
+            this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.label1);
             this.Name = "NewPerson";
             this.Text = "NewPerson";
-            this.Load += new System.EventHandler(this.NewPerson_Load);
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.nameTextBox, 0);
             this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.textBox2, 0);
-            this.Controls.SetChildIndex(this.monthCalendar1, 0);
+            this.Controls.SetChildIndex(this.descriptionTextBox, 0);
+            this.Controls.SetChildIndex(this.startTermMonthCalendar, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.label9, 0);
-            this.Controls.SetChildIndex(this.numericUpDown1, 0);
-            this.Controls.SetChildIndex(this.numericUpDown2, 0);
-            this.Controls.SetChildIndex(this.numericUpDown3, 0);
+            this.Controls.SetChildIndex(this.rentSumUpDown, 0);
+            this.Controls.SetChildIndex(this.paymentDayUpDown, 0);
+            this.Controls.SetChildIndex(this.penaltyUpDown, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.label11, 0);
-            this.Controls.SetChildIndex(this.monthCalendar2, 0);
+            this.Controls.SetChildIndex(this.endTermMonthCalendar, 0);
             this.Controls.SetChildIndex(this.label4, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentSumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentDayUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.penaltyUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,22 +275,22 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar startTermMonthCalendar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown rentSumUpDown;
+        private System.Windows.Forms.NumericUpDown paymentDayUpDown;
+        private System.Windows.Forms.NumericUpDown penaltyUpDown;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.MonthCalendar monthCalendar2;
+        private System.Windows.Forms.MonthCalendar endTermMonthCalendar;
         private System.Windows.Forms.Label label4;
     }
 }

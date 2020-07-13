@@ -20,7 +20,7 @@ namespace rent_calc
         {
             return new GenericNewHelper("test","asd");
         }
-        protected void button1_Click(object sender, EventArgs e)
+        protected void readyButton_Click(object sender, EventArgs e)
         {
             GenericNewHelper helper = getContents();
             if(helper.GetType()==typeof(ErrorHelper))

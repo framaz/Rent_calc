@@ -159,16 +159,6 @@ namespace rent_calc
                     break;
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void currentEventDateTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void eventListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UnclickAllButtons();
@@ -202,7 +192,7 @@ namespace rent_calc
                 //  PayEvent trueEvent = (PayEvent)curEvent;
                 //  groupBoxLeave.Visible = true;
                 //  groupBoxLeave.Enabled = true;
-                // numericUpDown1.Value = trueEvent.moneyPaid;
+                // paymentSumUpDown.Value = trueEvent.moneyPaid;
             }
             if (typeof(CustomWriteOff) == curEvent.GetType())
             {
@@ -211,7 +201,7 @@ namespace rent_calc
                 groupBoxCustomWriteOff.Enabled = true;
                 numericUpDown6.Value = trueEvent.moneyGot;
                 richTextBox3.Text = trueEvent.commentary;
-                // numericUpDown1.Value = trueEvent.moneyPaid;
+                // paymentSumUpDown.Value = trueEvent.moneyPaid;
             }
             if (typeof(ContractChangeEvent) == curEvent.GetType())
             {
@@ -286,12 +276,6 @@ namespace rent_calc
             eventListBox.SelectedItem = null;
             Recount();
         }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Save();
@@ -557,11 +541,6 @@ namespace rent_calc
 
             }
 
-        }
-
-        private void saveFileDialog2_FileOk(object sender, CancelEventArgs e)
-        {
-            
         }
     }
 

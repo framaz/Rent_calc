@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using rent_calc.Events;
+using rent_calc.Logics;
 
 namespace rent_calc.NewObjectForms
 {

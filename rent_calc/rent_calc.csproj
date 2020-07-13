@@ -93,6 +93,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logics\Address.cs" />
+    <Compile Include="Logics\MonthBill.cs" />
+    <Compile Include="Logics\Person.cs" />
+    <Compile Include="Logics\Report.cs" />
+    <Compile Include="Logics\Terms.cs" />
     <Compile Include="NewObjForms\AbstractNew.cs">
       <SubType>Form</SubType>
     </Compile>

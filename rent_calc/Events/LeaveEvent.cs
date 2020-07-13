@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using rent_calc.Logics;
 
 namespace rent_calc.Events
 {

@@ -50,10 +50,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.penaltyUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // addressDescriptionTextBox2
+            // descriptionTextBox
             // 
             this.descriptionTextBox.Location = new System.Drawing.Point(7, 84);
-            this.descriptionTextBox.Name = "addressDescriptionTextBox2";
+            this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(402, 20);
             this.descriptionTextBox.TabIndex = 8;
             // 
@@ -66,10 +66,10 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Доп. Информация";
             // 
-            // textBox1
+            // nameTextBox
             // 
             this.nameTextBox.Location = new System.Drawing.Point(7, 46);
-            this.nameTextBox.Name = "textBox1";
+            this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(402, 20);
             this.nameTextBox.TabIndex = 6;
             // 
@@ -82,13 +82,13 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "ФИО";
             // 
-            // eventDateMonthCalendar
+            // startTermMonthCalendar
             // 
             this.startTermMonthCalendar.Location = new System.Drawing.Point(7, 174);
             this.startTermMonthCalendar.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.startTermMonthCalendar.MaxSelectionCount = 1;
             this.startTermMonthCalendar.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.startTermMonthCalendar.Name = "eventDateMonthCalendar";
+            this.startTermMonthCalendar.Name = "startTermMonthCalendar";
             this.startTermMonthCalendar.ShowToday = false;
             this.startTermMonthCalendar.ShowTodayCircle = false;
             this.startTermMonthCalendar.TabIndex = 9;
@@ -139,7 +139,7 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Информация по договору";
             // 
-            // paymentSumUpDown
+            // rentSumUpDown
             // 
             this.rentSumUpDown.InterceptArrowKeys = false;
             this.rentSumUpDown.Location = new System.Drawing.Point(187, 191);
@@ -148,11 +148,11 @@
             0,
             0,
             0});
-            this.rentSumUpDown.Name = "paymentSumUpDown";
+            this.rentSumUpDown.Name = "rentSumUpDown";
             this.rentSumUpDown.Size = new System.Drawing.Size(248, 20);
             this.rentSumUpDown.TabIndex = 20;
             // 
-            // payDateUpDown
+            // paymentDayUpDown
             // 
             this.paymentDayUpDown.Location = new System.Drawing.Point(187, 228);
             this.paymentDayUpDown.Maximum = new decimal(new int[] {
@@ -165,7 +165,7 @@
             0,
             0,
             0});
-            this.paymentDayUpDown.Name = "payDateUpDown";
+            this.paymentDayUpDown.Name = "paymentDayUpDown";
             this.paymentDayUpDown.Size = new System.Drawing.Size(248, 20);
             this.paymentDayUpDown.TabIndex = 21;
             this.paymentDayUpDown.Value = new decimal(new int[] {
@@ -174,7 +174,7 @@
             0,
             0});
             // 
-            // newTermsPenaltyUpDown
+            // penaltyUpDown
             // 
             this.penaltyUpDown.DecimalPlaces = 5;
             this.penaltyUpDown.Location = new System.Drawing.Point(187, 267);
@@ -183,7 +183,7 @@
             0,
             0,
             0});
-            this.penaltyUpDown.Name = "newTermsPenaltyUpDown";
+            this.penaltyUpDown.Name = "penaltyUpDown";
             this.penaltyUpDown.Size = new System.Drawing.Size(248, 20);
             this.penaltyUpDown.TabIndex = 22;
             // 
@@ -204,13 +204,13 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "label11";
             // 
-            // termsEndMonthCalendar
+            // endTermMonthCalendar
             // 
             this.endTermMonthCalendar.Location = new System.Drawing.Point(7, 362);
             this.endTermMonthCalendar.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.endTermMonthCalendar.MaxSelectionCount = 1;
             this.endTermMonthCalendar.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.endTermMonthCalendar.Name = "termsEndMonthCalendar";
+            this.endTermMonthCalendar.Name = "endTermMonthCalendar";
             this.endTermMonthCalendar.ShowToday = false;
             this.endTermMonthCalendar.ShowTodayCircle = false;
             this.endTermMonthCalendar.TabIndex = 25;
@@ -247,7 +247,7 @@
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.label1);
             this.Name = "NewPerson";
-            this.Text = "NewPerson";
+            this.Text = "Новый арендатор";
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.nameTextBox, 0);
             this.Controls.SetChildIndex(this.label2, 0);

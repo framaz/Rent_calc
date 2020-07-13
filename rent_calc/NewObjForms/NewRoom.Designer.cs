@@ -43,10 +43,10 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Адрес";
             // 
-            // textBox1
+            // addressNameTextBox
             // 
             this.addressNameTextBox.Location = new System.Drawing.Point(12, 30);
-            this.addressNameTextBox.Name = "textBox1";
+            this.addressNameTextBox.Name = "addressNameTextBox";
             this.addressNameTextBox.Size = new System.Drawing.Size(402, 20);
             this.addressNameTextBox.TabIndex = 2;
             // 
@@ -76,7 +76,7 @@
             this.Controls.Add(this.addressNameTextBox);
             this.Controls.Add(this.label1);
             this.Name = "NewRoom";
-            this.Text = "NewRoom";
+            this.Text = "Новое помещение";
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.addressNameTextBox, 0);
             this.Controls.SetChildIndex(this.label2, 0);

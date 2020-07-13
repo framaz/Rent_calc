@@ -408,7 +408,7 @@
             this.label17.Size = new System.Drawing.Size(100, 23);
             this.label17.TabIndex = 2;
             // 
-            // numericUpDown6
+            // customWriteOffSumUpDown
             // 
             this.customWriteOffSumUpDown.Location = new System.Drawing.Point(10, 37);
             this.customWriteOffSumUpDown.Maximum = new decimal(new int[] {
@@ -416,7 +416,7 @@
             0,
             0,
             0});
-            this.customWriteOffSumUpDown.Name = "numericUpDown6";
+            this.customWriteOffSumUpDown.Name = "customWriteOffSumUpDown";
             this.customWriteOffSumUpDown.Size = new System.Drawing.Size(98, 20);
             this.customWriteOffSumUpDown.TabIndex = 1;
             // 
@@ -445,7 +445,7 @@
             this.Controls.Add(this.personLabel);
             this.Controls.Add(this.addressLabel);
             this.Name = "NewEvent";
-            this.Text = "NewEvent";
+            this.Text = "Новое событие";
             this.Controls.SetChildIndex(this.addressLabel, 0);
             this.Controls.SetChildIndex(this.personLabel, 0);
             this.Controls.SetChildIndex(this.eventTypeComboBox, 0);

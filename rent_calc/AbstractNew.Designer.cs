@@ -41,7 +41,7 @@
             this.readyButton.TabIndex = 0;
             this.readyButton.Text = "Готово";
             this.readyButton.UseVisualStyleBackColor = true;
-            this.readyButton.Click += new System.EventHandler(this.readyButton_Click);
+            this.readyButton.Click += new System.EventHandler(this.ReadyButton_Click);
             // 
             // label3
             // 

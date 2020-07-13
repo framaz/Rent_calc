@@ -25,24 +25,36 @@ namespace rent_calc
         {
             if (nameTextBox.Text.Length < 3)
                 return new ErrorHelper("", "Введие ФИО более 3 букв");
-            if (endTermMonthCalendar.SelectionStart<= startTermMonthCalendar.SelectionStart)
+            if (endTermMonthCalendar.SelectionStart <= startTermMonthCalendar.SelectionStart)
                 return new ErrorHelper("", "Договор оканчивается раньше, чем начинается");
-            return new NewPersonHelper(nameTextBox.Text, descriptionTextBox.Text, startTermMonthCalendar.SelectionStart, endTermMonthCalendar.SelectionStart, (int)rentSumUpDown.Value,(int)paymentDayUpDown.Value,(double)penaltyUpDown.Value);
+            return new NewPersonHelper(
+                nameTextBox.Text,
+                descriptionTextBox.Text,
+                startTermMonthCalendar.SelectionStart,
+                endTermMonthCalendar.SelectionStart,
+                (int)rentSumUpDown.Value, 
+                (int)paymentDayUpDown.Value,
+                (double)penaltyUpDown.Value);
         }
-
         private void endTermMonthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
             //    DateTime date = eventDateMonthCalendar.SelectionStart;
             //     label4.Text = date.ToString().Substring(0,11);
             endTermMonthCalendar.MinDate = startTermMonthCalendar.SelectionStart;
         }
-
     }
     public class NewPersonHelper : GenericNewHelper
     {
         public Terms terms;
         public DateTime endDate;
-        public NewPersonHelper(string name, string description,DateTime newDate, DateTime newEndDate, int newRent,int day,double newPenalty) : base(name, description)
+        public NewPersonHelper(
+            string name, 
+            string description,
+            DateTime newDate, 
+            DateTime newEndDate,
+            int newRent, 
+            int day, 
+            double newPenalty) : base(name, description)
         {
             endDate = newEndDate;
             DateTime payDay = new DateTime(newDate.Year, newDate.Month, day);

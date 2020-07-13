@@ -11,7 +11,7 @@ namespace rent_calc
 {
     public partial class NewRoom : AbstractNew
     {
-        public NewRoom():base()
+        public NewRoom() : base()
         {
             InitializeComponent();
         }
@@ -19,12 +19,12 @@ namespace rent_calc
         {
             if (addressNameTextBox.Text.Length < 3)
                 return new ErrorHelper("", "Введие адрес более 3 букв");
-            return new NewRoomHelper(addressNameTextBox.Text,addressDescriptionTextBox2.Text);
+            return new NewRoomHelper(addressNameTextBox.Text, addressDescriptionTextBox2.Text);
         }
     }
     public class NewRoomHelper : GenericNewHelper
     {
-        public NewRoomHelper(string name,string description):base(name,description)
+        public NewRoomHelper(string name, string description) : base(name, description)
         {
         }
     }

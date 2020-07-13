@@ -12,20 +12,15 @@ using System.IO;
 using NPOI.XSSF.UserModel;
 using NPOI.SS.UserModel;
 
-// Бесполезно что-то рефакторить: 
-// 1. Половина логики в форме.
-// 2. Элементы формы button8 в переменных типа button8_Click
-
 using rent_calc.Events;
 namespace rent_calc
 {
-
     public partial class Form1 : Form
     {
-        public GenericNewHelper newSmth;
-        public delegate void CreateNew();
+        public delegate void CreateNew(GenericNewHelper helper);
         public CreateNew myDelegate;
         private BindingList<Address> addresses;
+        int changeCurrentAddressInfoButton_state = 0;
         public Form1()
         {
             InitializeComponent();
@@ -35,8 +30,6 @@ namespace rent_calc
             saveFileDialog1.Filter = "Save|*.dap";
             openFileDialog1.Filter = "Load|*.dap";
             changeCurrentAddressInfoButton_state = 0;
-          
-            
         }
         public Form1(string fileName)
         {
@@ -46,6 +39,7 @@ namespace rent_calc
             addressListBox.DataSource = addresses;
             saveFileDialog1.Filter = "Save|*.dap";
             openFileDialog1.Filter = "Load|*.dap";
+
             if (!string.IsNullOrWhiteSpace(fileName) && File.Exists(fileName))
             {
                 BinaryFormatter formatter = new BinaryFormatter();
@@ -70,6 +64,7 @@ namespace rent_calc
             currentAddressDescriptionTextBox.Text = "";
             if (whatAddress == null)
                 return;
+
             personListBox.DataSource = whatAddress.people;
             if (whatAddress.people.Count > 0)
             {
@@ -97,13 +92,13 @@ namespace rent_calc
                 currentPersonDescriptionTextBox.Text = "";
                 return;
             }
+
             who.generateWithdrawEvents(DateTime.Today);
             eventListBox.DataSource = who.events;
             currentPersonNameTextBox.Text = who.personName;
             currentPersonDescriptionTextBox.Text = who.description;
             Recount();
         }
-
         private void Recount()
         {
             Person who = (Person)personListBox.SelectedItem;
@@ -117,11 +112,11 @@ namespace rent_calc
                 todayPenaltyTextBox.Text = "";
                 return;
             }
+
             Report report = who.Simulate(DateTime.Now);
             todayDebtTextBox.Text = report.totalDepth.ToString();
             todayPenaltyTextBox.Text = report.totalPenalty.ToString();
         }
-
         private void newAddressButton_Click(object sender, EventArgs e)
         {
             NewRoom test = new NewRoom();
@@ -141,7 +136,8 @@ namespace rent_calc
         {
             base.OnFormClosing(e);
 
-            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+            if (e.CloseReason == CloseReason.WindowsShutDown)
+                return;
 
             // Confirm user wants to close
             switch (MessageBox.Show(this, "Сохранить данные перед выходом?", "", MessageBoxButtons.YesNoCancel))
@@ -159,12 +155,12 @@ namespace rent_calc
                     break;
             }
         }
-        private void eventListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void EventListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UnclickAllButtons();
-            changeSelectedEvent();
+            SelectEvent();
         }
-        private void changeSelectedEvent()
+        private void SelectEvent()
         {
             groupBoxContract.Visible = false;
             groupBoxContract.Enabled = false;
@@ -176,45 +172,37 @@ namespace rent_calc
             groupBoxCustomWriteOff.Enabled = false;
             currentEventDateTextBox.Text = "";
             lastTermEndDateTextBox.Text = "";
+
             if (addressListBox.SelectedItem == null || personListBox.SelectedItem == null || eventListBox.SelectedItem == null)
                 return;
+
             Event curEvent = (Event)eventListBox.SelectedItem;
             currentEventDateTextBox.Text = curEvent.date.ToString().Substring(0, 11);
-            if (typeof(PayEvent) == curEvent.GetType())
+            switch (curEvent)
             {
-                PayEvent trueEvent = (PayEvent)curEvent;
-                groupBoxPayment.Visible = true;
-                groupBoxPayment.Enabled = true;
-                numericUpDown1.Value = trueEvent.moneyPaid;
-            }
-            if (typeof(LeaveEvent) == curEvent.GetType())
-            {
-                //  PayEvent trueEvent = (PayEvent)curEvent;
-                //  groupBoxLeave.Visible = true;
-                //  groupBoxLeave.Enabled = true;
-                // paymentSumUpDown.Value = trueEvent.moneyPaid;
-            }
-            if (typeof(CustomWriteOff) == curEvent.GetType())
-            {
-                CustomWriteOff trueEvent = (CustomWriteOff)curEvent;
-                groupBoxCustomWriteOff.Visible = true;
-                groupBoxCustomWriteOff.Enabled = true;
-                numericUpDown6.Value = trueEvent.moneyGot;
-                richTextBox3.Text = trueEvent.commentary;
-                // paymentSumUpDown.Value = trueEvent.moneyPaid;
-            }
-            if (typeof(ContractChangeEvent) == curEvent.GetType())
-            {
-                ContractChangeEvent trueEvent = (ContractChangeEvent)curEvent;
-                groupBoxContract.Visible = true;
-                groupBoxContract.Enabled = true;
-                Terms terms = trueEvent.terms;
-                currentEventTermPaymentUpDown.Value = terms.payment;
-                currentEventTermPaymentDateUpDown.Value = terms.dayOfPayment.Day;
-                currentEventTermPenaltyUpDown.Value = (decimal)terms.penalty;
-                currentEventTermEndDateUpDown.Text = trueEvent.endDate.ToString().Substring(0, 11);
+                case PayEvent payEvent:
+                    groupBoxPayment.Visible = true;
+                    groupBoxPayment.Enabled = true;
+                    numericUpDown1.Value = payEvent.moneyPaid;
+                    break;
+                case CustomWriteOff customWriteOff:
+                    groupBoxCustomWriteOff.Visible = true;
+                    groupBoxCustomWriteOff.Enabled = true;
+                    numericUpDown6.Value = customWriteOff.moneyGot;
+                    richTextBox3.Text = customWriteOff.commentary;
+                    break;
+                case ContractChangeEvent contractChangeEvent:
+                    groupBoxContract.Visible = true;
+                    groupBoxContract.Enabled = true;
+                    Terms terms = contractChangeEvent.terms;
+                    currentEventTermPaymentUpDown.Value = terms.payment;
+                    currentEventTermPaymentDateUpDown.Value = terms.dayOfPayment.Day;
+                    currentEventTermPenaltyUpDown.Value = (decimal)terms.penalty;
+                    currentEventTermEndDateUpDown.Text = contractChangeEvent.endDate.ToString().Substring(0, 11);
+                    break;
             }
             Person person = (Person)personListBox.SelectedItem;
+
             int pointer;
             for (pointer = person.events.Count - 1; ; pointer--)
             {
@@ -224,37 +212,43 @@ namespace rent_calc
                         break;
                 }
             }
-
             lastTermEndDateTextBox.Text = ((ContractChangeEvent)person.events[pointer]).endDate.ToString().Substring(0, 11);
         }
-
         private void deleteAddressButton_Click(object sender, EventArgs e)
         {
             if (addressListBox.SelectedItem == null)
                 return;
-            DialogResult dialogResult = MessageBox.Show("Вы действительно хотите удалить помещение " + ((Address)(addressListBox.SelectedItem)).ToString(), "Удаление помещения", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(
+                "Вы действительно хотите удалить помещение " + ((Address)(addressListBox.SelectedItem)).ToString(),
+                "Удаление помещения", 
+                MessageBoxButtons.YesNo);
+
             if (dialogResult != DialogResult.Yes)
                 return;
+
             addresses.Remove((Address)addressListBox.SelectedItem);
             addressListBox.SelectedItem = null;
             personListBox.DataSource = null;
             eventListBox.DataSource = null;
             Recount();
         }
-
         private void deletePersonButton_Click(object sender, EventArgs e)
         {
             if (personListBox.SelectedItem == null || addressListBox.SelectedItem == null)
                 return;
-            DialogResult dialogResult = MessageBox.Show("Вы действительно хотите удалить арендатора " + ((Person)(personListBox.SelectedItem)).ToString(), "Удаление арендатора", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(
+                "Вы действительно хотите удалить арендатора " + ((Person)(personListBox.SelectedItem)).ToString(),
+                "Удаление арендатора",
+                MessageBoxButtons.YesNo);
+
             if (dialogResult != DialogResult.Yes)
                 return;
+
             ((Address)(addressListBox.SelectedItem)).people.Remove((Person)personListBox.SelectedItem);
             personListBox.SelectedItem = null;
             eventListBox.DataSource = null;
             Recount();
         }
-
         private void deleteEventButton_Click(object sender, EventArgs e)
         {
             if (personListBox.SelectedItem == null || addressListBox.SelectedItem == null || eventListBox.SelectedItem == null)
@@ -269,18 +263,23 @@ namespace rent_calc
                 MessageBox.Show("Автоматически сгенерированные события удалить нельзя");
                 return;
             }
-            DialogResult dialogResult = MessageBox.Show("Вы действительно хотите удалить событие: \n" + ((Event)(eventListBox.SelectedItem)).ToString(), "Удаление события", MessageBoxButtons.YesNo);
+
+            DialogResult dialogResult = MessageBox.Show(
+                "Вы действительно хотите удалить событие: \n" + ((Event)(eventListBox.SelectedItem)).ToString(),
+                "Удаление события", 
+                MessageBoxButtons.YesNo);
+
             if (dialogResult != DialogResult.Yes)
                 return;
+
             ((Person)(personListBox.SelectedItem)).events.Remove((Event)eventListBox.SelectedItem);
             eventListBox.SelectedItem = null;
             Recount();
         }
-        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Save();
         }
-
         private bool Save()
         {
             bool status = false;
@@ -295,6 +294,7 @@ namespace rent_calc
                     status = true;
                 }
             }
+
             string md = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\Rent Calculator";
             if (Directory.Exists(md) == false)
             {
@@ -314,15 +314,16 @@ namespace rent_calc
             {
                 formatter.Serialize(fs, addresses);
             }
+
             foreach (string str in Directory.GetFiles(md, "*.dap"))
             {
                 try
                 {
                     string fileName = str.Substring(1 + str.LastIndexOf("\\"));
                     DateTime then = Convert.ToDateTime(fileName.Substring(0, 11));
-                    if (DateTime.Now-then>new TimeSpan(60,0,0,0,0))
+                    if (DateTime.Now - then > new TimeSpan(60, 0, 0, 0, 0))
                     {
-                        
+
                         File.Delete(str);
                     }
                 }
@@ -332,52 +333,52 @@ namespace rent_calc
             saveFileDialog1.FileName = saveFilePath;
             return status;
         }
-
-        public void createNewItem() 
+        public void createNewItem(GenericNewHelper newSmth)
         {
-            if(newSmth.GetType()==typeof(NewRoomHelper))
+            switch (newSmth)
             {
-                NewRoomHelper room = (NewRoomHelper)newSmth;
-                Address newAddress = new Address(room.name, room.description);
-                addresses.Add(newAddress);
-                addressListBox.SelectedItem = newAddress;
-                personListBox.DataSource = newAddress.people;
-                currentAddressNameTextBox.Text = newAddress.name;
-                currentAddressDescriptionTextBox.Text = newAddress.description;
-                currentPersonNameTextBox.Text = "";
-                currentPersonDescriptionTextBox.Text = "";
-                //addressListBox.Items.Add(newAddress);
-            }
-            if(newSmth.GetType()==typeof(NewPersonHelper))
-            {
-                NewPersonHelper personHelper = (NewPersonHelper)newSmth;
-                Person person = new Person(personHelper.name,personHelper.description,personHelper.terms.dateOfAcceptance);
-                ((Address)addressListBox.SelectedItem).people.Add(person);
-                person.addEvent(new ContractChangeEvent(personHelper.terms.dateOfAcceptance,personHelper.endDate, personHelper.terms));
-                person.generateWithdrawEvents(DateTime.Now);
-                personListBox.SelectedItem = person;
-                eventListBox.DataSource = person.events;
-                currentPersonNameTextBox.Text = person.personName;
-                currentPersonDescriptionTextBox.Text = person.description;
-            }
-            if(newSmth.GetType()==typeof(NewEventHelper))
-            {
-                Person person = (Person)personListBox.SelectedItem;
-                if (person.addEvent(((NewEventHelper)newSmth).myEvent) == 1)
-                    MessageBox.Show("Нельзя совершать действия до заклю" +
-                        "чения первого договора");
-                if(((NewEventHelper)newSmth).myEvent.GetType()==typeof(CustomWriteOff))
-                {
-                    int i;
-                    for (i = person.events.Count - 1; i >= 0 && (person.events[i].GetType() != typeof(ContractChangeEvent) || person.events[i].date > ((NewEventHelper)newSmth).myEvent.date); i--)
-                        ;
-                    ((CustomWriteOff)((NewEventHelper)newSmth).myEvent).penalty = ((ContractChangeEvent)person.events[i]).terms.penalty;
-                }
-                eventListBox.SelectedItem = ((NewEventHelper)newSmth).myEvent;
+                case NewRoomHelper room:
+                    Address newAddress = new Address(room.name, room.description);
+                    addresses.Add(newAddress);
+                    addressListBox.SelectedItem = newAddress;
+                    personListBox.DataSource = newAddress.people;
+                    currentAddressNameTextBox.Text = newAddress.name;
+                    currentAddressDescriptionTextBox.Text = newAddress.description;
+                    currentPersonNameTextBox.Text = "";
+                    currentPersonDescriptionTextBox.Text = "";
+                    //addressListBox.Items.Add(newAddress);
+                    break;
+                case NewPersonHelper personHelper:
+                    Person person = new Person(personHelper.name, personHelper.description, personHelper.terms.dateOfAcceptance);
+                    ((Address)addressListBox.SelectedItem).people.Add(person);
+                    person.addEvent(new ContractChangeEvent(personHelper.terms.dateOfAcceptance, personHelper.endDate, personHelper.terms));
+                    person.generateWithdrawEvents(DateTime.Now);
+                    personListBox.SelectedItem = person;
+                    eventListBox.DataSource = person.events;
+                    currentPersonNameTextBox.Text = person.personName;
+                    currentPersonDescriptionTextBox.Text = person.description;
+                    break;
+                case NewEventHelper new_event:
+                    person = (Person)personListBox.SelectedItem;
+                    if (person.addEvent(((NewEventHelper)newSmth).myEvent) == 1)
+                        MessageBox.Show("Нельзя совершать действия до заклю" +
+                            "чения первого договора");
+                    if (((NewEventHelper)newSmth).myEvent.GetType() == typeof(CustomWriteOff))
+                    {
+                        int i;
+                        for (i = person.events.Count - 1;
+                            i >= 0 &&
+                            (person.events[i].GetType() != typeof(ContractChangeEvent) ||
+                            person.events[i].date > ((NewEventHelper)newSmth).myEvent.date);
+                            i--)
+                            ;
+                        ((CustomWriteOff)((NewEventHelper)newSmth).myEvent).penalty = ((ContractChangeEvent)person.events[i]).terms.penalty;
+                    }
+                    eventListBox.SelectedItem = ((NewEventHelper)newSmth).myEvent;
+                    break;
             }
             Recount();
         }
-
         private void newEventButton_Click(object sender, EventArgs e)
         {
             if (personListBox.SelectedItem != null)
@@ -387,7 +388,6 @@ namespace rent_calc
                 test.Show();
             }
         }
-
         private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -401,9 +401,8 @@ namespace rent_calc
                     addressListBox.DataSource = addresses;
                 }
             }
-            
+
         }
-        int changeCurrentAddressInfoButton_state=0;
         private void UnclickAllButtons()
         {
             changeCurrentAddressInfoButton_state = 0;
@@ -414,10 +413,11 @@ namespace rent_calc
             currentAddressDescriptionTextBox.Enabled = false;
             currentPersonNameTextBox.Enabled = false;
             currentPersonDescriptionTextBox.Enabled = false;
+
             if (addressListBox.SelectedItem != null)
             {
                 Address address = (Address)addressListBox.SelectedItem;
-                currentAddressNameTextBox.Text = address.name ;
+                currentAddressNameTextBox.Text = address.name;
                 currentAddressDescriptionTextBox.Text = address.description;
             }
             if (personListBox.SelectedItem != null)
@@ -429,7 +429,7 @@ namespace rent_calc
         }
         private void changeCurrentAddressInfoButton_Click(object sender, EventArgs e)
         {
-            if(changeCurrentAddressInfoButton_state == 0)
+            if (changeCurrentAddressInfoButton_state == 0)
             {
                 UnclickAllButtons();
                 if (addressListBox.SelectedItem == null)
@@ -446,7 +446,7 @@ namespace rent_calc
                 Address address = (Address)addressListBox.SelectedItem;
                 changeCurrentAddressInfoButton.Text = "Изменить";
                 address.name = currentAddressNameTextBox.Text;
-                address.description =currentAddressDescriptionTextBox.Text;
+                address.description = currentAddressDescriptionTextBox.Text;
                 changeCurrentAddressInfoButton_state = 0;
                 currentAddressNameTextBox.Enabled = false;
                 currentAddressDescriptionTextBox.Enabled = false;
@@ -484,7 +484,6 @@ namespace rent_calc
                 personListBox.SelectedItem = person;
             }
         }
-
         private void countCurrentButton_Click(object sender, EventArgs e)
         {
             if (eventListBox.SelectedItem == null)
@@ -495,7 +494,6 @@ namespace rent_calc
             currentPenaltyTextBox.Text = report.totalPenalty.ToString();
             person.generateWithdrawEvents(DateTime.Now);
         }
-
         private void exportXLSButton_Click(object sender, EventArgs e)
         {
 
@@ -513,12 +511,13 @@ namespace rent_calc
                 row.CreateCell(2).SetCellValue("Оплачено");
                 int curRow = 1;
                 row = sheet.CreateRow(curRow);
-                foreach(Event curEvent in ((Person)personListBox.SelectedItem).events.Where(x=> { return x.date <= curDateCalendar.SelectionStart; }))
+                foreach (Event curEvent in ((Person)personListBox.SelectedItem).events.Where(
+                    x => { return x.date <= curDateCalendar.SelectionStart; }))
                 {
-                    if(curEvent.ToRow(row))
+                    if (curEvent.ToRow(row))
                     {
                         curRow++;
-                        row = sheet.CreateRow(curRow); 
+                        row = sheet.CreateRow(curRow);
                     }
                 }
                 Person person = (Person)personListBox.SelectedItem;
@@ -532,8 +531,8 @@ namespace rent_calc
                 row.CreateCell(3).SetCellValue("Пеня:");
                 row.CreateCell(4).SetCellValue(report.totalPenalty);
                 row.CreateCell(5).SetCellValue("Долг+пеня:");
-                row.CreateCell(6).SetCellValue(report.totalDepth+report.totalPenalty);
-                for(int i=0;i<7;i++)
+                row.CreateCell(6).SetCellValue(report.totalDepth + report.totalPenalty);
+                for (int i = 0; i < 7; i++)
                     sheet.AutoSizeColumn(i);
                 FileStream sw = File.Create(saveFileDialog2.FileName);
                 workbook.Write(sw);
@@ -551,14 +550,14 @@ namespace rent_calc
         public double debt;
         public double penalty;
         public double penaltyPercentage;
-        public MonthBill(DateTime newDate,double newDebt,double newPenaltyPercentage)
+        public MonthBill(DateTime newDate, double newDebt, double newPenaltyPercentage)
         {
             debt = newDebt;
             date = newDate;
             penaltyPercentage = newPenaltyPercentage;
         }
     }
-    public struct Report 
+    public struct Report
     {
         public double totalDepth;
         public double totalPenalty;
@@ -567,7 +566,7 @@ namespace rent_calc
     [Serializable]
     public class Person : Object
     {
-        public string personName,description;
+        public string personName, description;
         public Terms terms;
         public List<MonthBill> months;
         public BindingList<Event> events;
@@ -575,7 +574,7 @@ namespace rent_calc
         public int addEvent(Event newEvent)
         {
             //TODO переделать
-            int pointer=0;
+            int pointer = 0;
             if (events.Count == 0)
             {
                 events.Add(newEvent);
@@ -591,8 +590,8 @@ namespace rent_calc
         public void generateWithdrawEvents(DateTime target)
         {
             DateTime nextPaymentDate = start;
-            int pointer=0;
-            for(int i=0;i<events.Count;i++)
+            int pointer = 0;
+            for (int i = 0; i < events.Count; i++)
             {
                 Event curEvent = events[i];
                 if (curEvent.GetType() == typeof(WriteOffEvent))
@@ -601,12 +600,12 @@ namespace rent_calc
                     i--;
                 }
             }
-            while(nextPaymentDate<=target)
+            while (nextPaymentDate <= target)
             {
                 bool isPayed = false;
-                for(; pointer < events.Count&&events[pointer].date<=nextPaymentDate;pointer++)
+                for (; pointer < events.Count && events[pointer].date <= nextPaymentDate; pointer++)
                 {
-                    if(events[pointer].getType() == "leaveEvent")
+                    if (events[pointer].getType() == "leaveEvent")
                     {
                         events[pointer].Apply(this);
                     }
@@ -615,21 +614,24 @@ namespace rent_calc
                     if (events[pointer].getType() == "contractChangeEvent")
                     {
                         events[pointer].Apply(this);
-                        nextPaymentDate = new DateTime(terms.dateOfAcceptance.Year, terms.dateOfAcceptance.Month, terms.dayOfPayment.Day);
+                        nextPaymentDate = new DateTime(
+                            terms.dateOfAcceptance.Year,
+                            terms.dateOfAcceptance.Month,
+                            terms.dayOfPayment.Day);
                         if (nextPaymentDate < terms.dateOfAcceptance)
-                            nextPaymentDate=nextPaymentDate.AddMonths(1);
+                            nextPaymentDate = nextPaymentDate.AddMonths(1);
                     }
-                    
+
                 }
-                if (!isPayed&&status==1)
+                if (!isPayed && status == 1)
                 {
-                    events.Insert(pointer, new WriteOffEvent(nextPaymentDate, terms.payment,terms.penalty));
+                    events.Insert(pointer, new WriteOffEvent(nextPaymentDate, terms.payment, terms.penalty));
                     pointer++;
                 }
-                nextPaymentDate=nextPaymentDate.AddMonths(1);
+                nextPaymentDate = nextPaymentDate.AddMonths(1);
             }
         }
-        private DateTime start, finish;
+        private DateTime start;
         public int overpayment;
         public int status;
 
@@ -652,27 +654,27 @@ namespace rent_calc
             Report report = new Report();
             overpayment = 0;
             generateWithdrawEvents(target);
-            if(currentDate>target)
+            if (currentDate > target)
             {
                 report.stringReport = "Неверная дата";
                 return report;
             }
             List<Event> eventHistory = new List<Event>();
             months.Clear();
-            int pointer=0;
-            
-            for(;currentDate.Date<=target; currentDate=currentDate.AddDays(1))
+            int pointer = 0;
+
+            for (; currentDate.Date <= target; currentDate = currentDate.AddDays(1))
             {
                 PenaltyEvent penaltyEvent = new PenaltyEvent(currentDate);
                 penaltyEvent.Apply(this);
                 eventHistory.Add(penaltyEvent);
-                for(;pointer<events.Count&&events[pointer].date<=currentDate;pointer++)
+                for (; pointer < events.Count && events[pointer].date <= currentDate; pointer++)
                 {
                     eventHistory.Add(events[pointer]);
                     events[pointer].Apply(this);
                 }
             }
-            foreach(MonthBill bill in months)
+            foreach (MonthBill bill in months)
             {
                 report.totalDepth += bill.debt;
                 report.totalPenalty += bill.penalty;
@@ -691,14 +693,18 @@ namespace rent_calc
         public DateTime dayOfPayment;
         public DateTime dateOfEnd;
         public double penalty;
-        public Terms(int newPayment,DateTime newDateOfAcceptance,DateTime newDayOfPayment,double newPenalty)
+        public Terms(int newPayment, DateTime newDateOfAcceptance, DateTime newDayOfPayment, double newPenalty)
         {
             payment = newPayment;
             dateOfAcceptance = newDateOfAcceptance;
             dayOfPayment = newDayOfPayment;
             penalty = newPenalty;
         }
-        public Terms(int newPayment, DateTime newDateOfAcceptance, DateTime newDayOfPayment, double newPenalty,DateTime newDateOfEnd)
+        public Terms(int newPayment,
+            DateTime newDateOfAcceptance,
+            DateTime newDayOfPayment,
+            double newPenalty,
+            DateTime newDateOfEnd)
         {
             payment = newPayment;
             dateOfAcceptance = newDateOfAcceptance;
@@ -721,7 +727,7 @@ namespace rent_calc
         {
             return GetName();
         }
-        public Address(string newName,string newDescription)
+        public Address(string newName, string newDescription)
         {
             name = newName;
             description = newDescription;

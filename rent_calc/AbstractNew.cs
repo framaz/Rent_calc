@@ -18,19 +18,18 @@ namespace rent_calc
         }
         protected virtual GenericNewHelper getContents()
         {
-            return new GenericNewHelper("test","asd");
+            return new GenericNewHelper("test", "asd");
         }
-        protected void readyButton_Click(object sender, EventArgs e)
+        protected void ReadyButton_Click(object sender, EventArgs e)
         {
             GenericNewHelper helper = getContents();
-            if(helper.GetType()==typeof(ErrorHelper))
+            if (helper.GetType() == typeof(ErrorHelper))
             {
                 label3.Text = helper.description;
                 label3.Visible = true;
                 return;
             }
-            ((Form1)Owner).newSmth = helper;
-            Owner.Invoke(((Form1)Owner).myDelegate);
+            Owner.Invoke(((Form1)Owner).myDelegate, new Object[] { helper });
             this.Close();
         }
     }
@@ -46,9 +45,9 @@ namespace rent_calc
     }
     public class ErrorHelper : GenericNewHelper
     {
-        public ErrorHelper(string newName, string newDescription):base(newName,newDescription)
+        public ErrorHelper(string newName, string newDescription) : base(newName, newDescription)
         {
         }
     }
-   
+
 }

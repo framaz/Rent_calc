@@ -13,13 +13,18 @@ namespace rent_calc
     public partial class NewEvent : AbstractNew
     {
         GroupBox[] groupBoxes;
-        public NewEvent(string address, string person):base()
+        public NewEvent(string address, string person) : base()
         {
             InitializeComponent();
             addressLabel.Text = address;
             personLabel.Text = person;
             eventTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            groupBoxes = new GroupBox[] { paymentGroupBox, newTermsGroupBox, leaveGroupBox, newPaymentSetGroupBox, customWriteOffGroupBox };
+            groupBoxes = new GroupBox[] {
+                paymentGroupBox,
+                newTermsGroupBox,
+                leaveGroupBox,
+                newPaymentSetGroupBox,
+                customWriteOffGroupBox };
             eventTypeComboBox.SelectedIndex = 0;
             termsEndMonthCalendar.MinDate = eventDateMonthCalendar.SelectionStart;
         }
@@ -29,7 +34,7 @@ namespace rent_calc
             //       return new ErrorHelper("", "Введие адрес более 3 букв");
             //    return new NewRoomHelper(textBox1.Text, addressDescriptionTextBox2.Text);
             Event myEvent;
-            switch(eventTypeComboBox.SelectedIndex)
+            switch (eventTypeComboBox.SelectedIndex)
             {
                 case 0:
                     myEvent = new PayEvent(eventDateMonthCalendar.SelectionStart, (int)paymentSumUpDown.Value);
@@ -40,7 +45,13 @@ namespace rent_calc
                     DateTime payDay = new DateTime(newDate.Year, newDate.Month, (int)payDateUpDown.Value);
                     if (payDay < newDate)
                         payDay = payDay.AddMonths(1);
-                    myEvent = new ContractChangeEvent(newDate, endDate, new Terms((int)newTermsPaymentUpDown.Value, newDate, payDay, (double)newTermsPenaltyUpDown.Value));
+                    myEvent = new ContractChangeEvent(
+                        newDate, 
+                        endDate, 
+                        new Terms((int)newTermsPaymentUpDown.Value, 
+                            newDate,
+                            payDay, 
+                            (double)newTermsPenaltyUpDown.Value));
                     break;
                 case 2:
                     myEvent = new LeaveEvent(eventDateMonthCalendar.SelectionStart);
@@ -49,7 +60,11 @@ namespace rent_calc
                     myEvent = new PaymentChangeEvent(eventDateMonthCalendar.SelectionStart, (int)newPaymentUpDown.Value);
                     break;
                 case 4:
-                    myEvent = new CustomWriteOff(eventDateMonthCalendar.SelectionStart, (int)customWriteOffSumUpDown.Value, 0, customWriteOffCommentTextBox.Text);
+                    myEvent = new CustomWriteOff(
+                        eventDateMonthCalendar.SelectionStart, 
+                        (int)customWriteOffSumUpDown.Value,
+                        0,
+                        customWriteOffCommentTextBox.Text);
                     break;
                 default:
                     myEvent = new LeaveEvent(eventDateMonthCalendar.SelectionStart);
@@ -60,7 +75,7 @@ namespace rent_calc
 
         private void eventTypeComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach(GroupBox i in groupBoxes)
+            foreach (GroupBox i in groupBoxes)
             {
                 i.Visible = false;
                 i.Enabled = false;
@@ -77,7 +92,7 @@ namespace rent_calc
     public class NewEventHelper : GenericNewHelper
     {
         public Event myEvent;
-        public NewEventHelper(Event newEvent):base("","")
+        public NewEventHelper(Event newEvent) : base("", "")
         {
             myEvent = newEvent;
         }
